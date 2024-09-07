@@ -1,0 +1,1254 @@
+/*
+Theme Name: portfolio
+Theme URI: https://www.jeremieberton.fr
+Author: jberton
+Author URI: 
+Description: Thème Portfolio
+Version: 1.0
+*/
+
+/*GENERAL*/
+:root {
+	--rouge-color: #E00000;
+	--rouge-secondaire-color: #FE5858;
+	--rouge-tertiaire-color: #FFD6D6;
+	--bleu-fonce-color: #313144;
+	--gris-fonce-color: #C4C4C4;
+	--gris-medium-color: #D8D8D8;
+	--gris-light-color: #E5E5E5;
+  }
+
+/*  Chargement des polices Google */
+@font-face {
+	font-family: 'Space Mono';
+	src: url('../fonts/SpaceMono/SpaceMono-Regular.woff2');
+  }
+@font-face {
+	font-family: 'Space Mono Bold';
+	src: url('../fonts/SpaceMono/SpaceMono-Bold.woff2');
+  }
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins/Poppins-Regular.woff2');
+}
+
+body {
+	font-family: "Poppins";
+	font-size: 16px;
+	margin:0;
+	padding:0;
+	height: 100%;
+}
+
+h2 {
+	font-family: "Space Mono";
+	font-size: 25px;
+	text-decoration: underline;
+	text-decoration-color: rgb(112,48,160);
+	text-underline-offset: 10px;
+	text-decoration-thickness: 4px;
+}
+
+/* Footer */
+footer {
+	width: 1200px;
+	margin:auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+}
+
+footer ul {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	gap:40px;
+	margin-top: -20px;
+}
+
+footer a {
+	text-decoration: none;
+	color: black;
+}
+
+.line-top-footer{
+	border-top: 1px solid black;
+	width:100%;
+	position: relative;
+}
+
+/* Header */
+header {
+	width: 1200px;
+	margin:auto;
+}
+
+header ul {
+	display: flex;
+	flex-direction: row;
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+}
+
+header li{
+	padding-left: 20px;
+	text-decoration: none;
+  }
+
+header li a{
+	text-decoration: none;
+	color: black;
+	font-size: 16px;
+  }
+
+.logo img {
+	height: 90px;	
+}
+
+/* Page Accueil - Hero Header */
+.hero-header {
+	position: relative;
+	text-align: center;
+	color: white;
+	z-index: -1;
+}
+
+.hero-header img {
+	width: 100%;
+	height: 962px;
+	object-fit: cover;
+}
+
+.hero-header h1 {
+	width: 100%;
+	font-family: "Space Mono Bold";
+	font-style: italic;
+	font-size: 90px;
+	-webkit-text-stroke: 0.02em  white;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: -20px;
+	margin-top: -20px;
+	word-spacing: -.5ch;
+}
+
+.hero-header p {
+	font-size: 30px;
+	width: 60%;
+	margin: auto;
+}
+
+/* Page Accueil - Hero Header - Animation apparition de la vidéo */
+@keyframes banner-video {
+	0% {
+	  opacity: 0;
+	  transform: translateY(-200px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  .video-hero-header video {
+	animation-name: banner-video;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	width: 100%;
+  }
+
+/* Page Accueil - Hero Header - Animation apparition du titre sur la vidéo */
+@keyframes title-load {
+	0% {
+	  opacity: 0;
+	  transform: translateY(200px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0px);
+	}
+}
+
+  .titre-parallaxe {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+	position: absolute;
+	top: 20%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+
+	animation-name: title-load;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+  }
+
+/* Page Accueil - Hero Header - Effet de parallaxe titre sur vidéo */
+
+
+/* Page Accueil - Conteneur filtres + photos */
+.page-container {
+	width: 1200px;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+/* Page Accueil - Disposition du Profil */
+.profil-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profil-container p {
+	text-align: center;
+}
+
+/* Page Accueil - Conteneur Profil gestion projet et softs skills */
+.profil-suite-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/* Page Accueil - Disposition image Profil gestion projet */
+.roue-projet {
+	width: 80%;
+}
+
+/* Page Accueil - Conteneur Compétences Progressbar et CV*/
+#competences h2{
+	text-align: center;
+}
+.competences-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/* Page Accueil - Disposition Compétences Progressbar */
+.competences-progressbar {
+	width: 50%;
+}
+.competences-section {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+}
+.competences-section h3 {
+	margin-bottom: 0px;
+}
+.competences-section p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+/* Page Accueil - Mise en forme de la barre de progression */
+progress{  
+	width: 80%;  
+	height: 30px;
+	padding:2px;
+	background-color:white;
+	border:1px solid black;
+	text-align:center
+  }
+
+  .progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 20px
+}
+
+  .progress-container__bar {
+    width: 0;
+    height: 10px;
+    background-color: rgb(112,48,160);
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    transition: width 2s ease;
+    position: relative;
+    overflow: hidden
+}
+
+/* Page Accueil - Définition des pourcentages de compétences */
+#html-bar.is-visible{
+	width: 93% !important;
+}
+#css-bar.is-visible{
+	width: 90% !important;
+}
+#javascript-bar.is-visible{
+	width: 80% !important;
+}
+#responsive-bar.is-visible{
+	width: 95% !important;
+}
+#seo-bar.is-visible{
+	width: 90% !important;
+}
+#php-bar.is-visible{
+	width: 90% !important;
+}
+#sql-bar.is-visible{
+	width: 85% !important;
+}
+#ajax-bar.is-visible{
+	width: 75% !important;
+}
+#wordpress-bar.is-visible{
+	width: 95% !important;
+}
+#agile-bar.is-visible{
+	width: 90% !important;
+}
+#git-bar.is-visible{
+	width: 85% !important;
+}
+#notion-bar.is-visible{
+	width: 90% !important;
+}
+
+
+
+/* Page Accueil - Disposition Compétences cv image + bouton DL*/
+
+.competences-cv {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.mon-cv {
+	object-fit: contain;
+	width: 90%;
+}
+
+.btn-action {
+	color: #ffffff;
+    background-color: rgb(112,48,160);
+	text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 18px;
+	border-radius: 10px;
+	border-bottom: 5px solid rgb(66,28,94);
+	transition: all .1s;
+	-webkit-transition: all .1s;
+	display: flex;
+	margin: auto;
+}
+
+.btn-action:active {
+	transform: translate(0, 5px);
+	-webkit-transform: translate(0, 5px);
+	border-bottom: 1px solid;
+}
+
+.btn-action:hover {
+	color: #ffffff;
+    background-color: rgba(111, 48, 160, 0.801);
+}
+
+
+/* Page Accueil - Disposition des menus déroulants */
+.filters-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.menu-deroulant {
+	width: 260px;
+}
+
+.menu-deroulant button {
+	width: 260px;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid;
+	border-radius: 10px;
+	height: 43px;
+	padding: 20px;
+}
+
+.menu-deroulant a {
+	cursor: pointer;
+}
+
+/* Page Accueil - Zone de filtre - Menu déroulant ul li */
+li {
+	list-style: none !important;
+	color: black;
+	padding: 10px;
+	font-size: 20px;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.menu-deroulant ul {
+	padding: 0;
+	margin: 0;
+}
+
+.menu-deroulant ul li{
+	line-height: 40px;
+	font-size: 14px;
+	font-family: "Poppins";
+}
+
+.menu-deroulant ul a{
+	text-decoration: none;
+}
+
+.menu-deroulant li:hover {
+	background-color:var(--rouge-color);
+	color: white;
+	transition: all 0.5s;
+	}
+
+.menu-deroulant ul { 
+	display:none; /* Par défaut cacher le menu déroulant */
+}
+
+.menu-deroulant .visible { 
+	display:block; /* Afficher le menu déroulant */
+}
+
+.menu-deroulant .hide { 
+	display:none; /* Cacher le menu déroulant */
+}
+
+.flechehaut {
+	transform: rotate(180deg);
+  }
+
+
+#menu-d-1:hover,  #menu-d-2:hover, #menu-d-3:hover{
+	border-color: #215AFF;
+}
+
+.filtreactif {
+	border-color: #215AFF !important;
+}
+
+.filtreinactif {
+	border-color: var(--gris-fonce-color);
+}
+
+
+/* Page Accueil - position du bouton Charger plus */
+.js-load-photos {
+	display: block;
+	margin: auto;
+}
+
+/* Page Accueil + single-photos - Mise en forme du bouton */
+.js-load-photos, .lien-contact button{
+	width: 272px;
+	height: 50px;
+	background-color: var(--gris-medium-color);
+	font-family: "Space Mono";
+	font-size: 14px;
+	font-weight: 400;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s linear;
+}
+
+.js-load-photos:hover, .lien-contact button:hover {
+	background-color: black;
+	color: white;
+	font-weight: 700;
+	transition: all 0.2s linear;
+}
+
+
+/* Page single-photos - blocs haut de page */
+.post-single {
+	display : flex;
+	flex-direction: row;
+	justify-content: space-between;
+	min-height: 480px;
+	height: calc(100vh - 200px);
+}
+
+/* Page single-photos - bloc image haut */
+.post-photo{ 
+	float: right;
+	max-width: 50%;
+}
+.post-photo img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: bottom;
+}
+/* Page single-photos - bloc infos haut */
+.post-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 50%;
+	border-bottom: 1px solid black;
+	padding-bottom: 20px;
+	text-transform: uppercase;
+}
+
+/* Page single-photos - bloc infos haut - Titre */
+.post-info h1 {
+	font-family: "Space Mono";
+	font-style: italic;
+	font-size: 70px;
+	font-weight: 300;
+	line-height: 80px;
+	width: 100%;
+	margin-bottom: 20px;
+	word-spacing: -20px;
+}
+
+/* Page single-photos - disposition des blocs en dessous de la photo active */
+.bloc-dessous {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid black;
+	height: 118px;
+}
+
+/* Page single-photos - bloc lien contact */
+.lien-contact {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 50%;
+}
+
+.lien-contact p{
+	font-size: 14px;
+}
+
+/* Page single-photos - bloc lien navigation */
+.lien-navigation {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-evenly;
+	position: relative;
+	width: 50%;
+}
+.lien-navigation img {
+	width: 81px;
+	height: 71px;
+	position: absolute;
+	object-fit: cover;
+	object-position: center;
+	right: 0;
+	top: 10px;
+}
+
+#img-2 {
+	opacity: 1;
+}
+#img-1, #img-3 {
+	opacity: 0;
+}
+
+.flecheGauche {
+	position: absolute;
+	bottom: 30px;
+	right: 55px;
+}
+.flecheDroite {
+	position: absolute;
+	bottom: 30px;
+	right: 0;
+}
+
+.fleche img {
+	width: 25px;
+	height: 8px;
+	object-fit: cover;
+}
+
+/* Template Photo_block */
+.photos-liste-title {
+	font-family: "Space Mono";
+	font-size: 22px;
+	margin-top: 60px;
+}
+
+.photos-cards {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px;
+	grid-auto-rows: minmax(100px, auto);
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.photo-card {
+	width: 100%;
+	height: 495px;
+	object-fit: cover;
+	background:#000000;
+	display:inline-block;
+	border-bottom: 1px solid grey;
+}
+
+.icone-oeil{
+	width: 46px;
+	height: 32px;
+}
+
+.icone-fullscreen{
+	width: 34px;
+	height: 34px;
+}
+
+/* Template Photo_block - Superposition icones + textes sur une photo */
+
+/* Conteneur overlay */
+.overlay-image {
+	position: relative;
+	width: 100%;
+	border: 1px solid rgb(150, 150, 150);
+	box-shadow: 2px 2px 2px grey;
+   }
+   
+   /* Position photo */
+   .overlay-image .photo-card {
+	display: block;
+	width: 100%;
+	height: 400px;
+   }
+   
+   /* Position icone oeil */
+   	.hover .icone-oeil {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+   	}
+
+	/* Position icone Fullscreen */
+	.hover .icone-fullscreen {
+	position: absolute;
+	top: 2%;
+	right: 2%;
+	}
+
+	/* Position texte langage */
+	.hover .txt-ref {
+	position: absolute;
+	top: 0;
+	left: 4%;
+	font-family: "Poppins";
+	font-size: 14px;
+	color: #fff;
+	text-transform: uppercase;
+	}
+
+	/* Position texte type projet */
+	.hover .txt-categ {
+	position: absolute;
+	top: 5%;
+	left: 4%;
+	font-family: "Poppins";
+	font-size: 14px;
+	color: #fff;
+	text-transform: uppercase;
+	}
+	/* Position texte titre projet et objectif */
+	.projet-info {
+		padding: 0px 10px;
+	}
+	.projet-info p {
+		margin-top: -10px;
+	}
+
+
+/* Template Photo_block - Hover image et texte sur une photo */
+
+/* Overlay */
+.overlay-image .hover {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+}
+   
+/* Apparition overlay sur passage souris */
+.overlay-image:hover .hover {
+	opacity: 1;
+}
+
+/* Template Photo_block - Hover background */
+
+.overlay-image {
+	transition: 1s ease;
+   }
+
+.overlay-image .hover {
+	background-color: rgba(0,0,0,0.5);
+   }
+
+
+
+/* Formulaire de contact */
+.popup-overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#00000060;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    z-index: 999; /* à enlever */
+    top:0;
+    left:0;
+	font-family: "Poppins";
+	color:var(--bleu-fonce-color);
+	font-size: 12px;
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0);
+}
+
+.popup-overlay-visible{
+	visibility: visible !important;
+	opacity: 1;
+	transform: scale(1);
+	transition: 1s ease-in-out;
+}
+
+.popup-container{
+	background:white;
+    border:3px solid black;
+    width:591px;
+	max-height:770px;
+    position:relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.popup-header{
+	background-image: url(../images/contact-nathalie-mota-photographe.png);
+	background-repeat: repeat-x;
+	background-position: left 47% top 0%;
+	background-size: cover;
+	height:106px;
+	width:100%;
+	margin-top: 10px;
+}
+
+.wpcf7-form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.wpcf7-form label{
+	margin-top: 20px;
+}
+
+.wpcf7-form-control-wrap{
+	display: flex;
+	flex-direction: column;
+	width: 263px;
+	margin-top: 5px;
+}
+
+.wpcf7-form-control-wrap input {
+	width: 255px;
+	height: 40px;
+	border:solid 1px var(--gris-fonce-color);
+	border-radius: 10px;
+	padding: 0 5px;
+	font-family: "Poppins";
+	font-size: 12px;
+	color: var(--bleu-fonce-color);
+}
+
+.wpcf7-form-control-wrap textarea {
+	height: 210px;
+	border:solid 1px var(--gris-fonce-color);
+	border-radius: 10px;
+	padding: 5px 5px;
+	font-family: "Poppins";
+	font-size: 12px;
+	color: var(--bleu-fonce-color);
+}
+
+.wpcf7-submit {
+	font-family: "Space Mono";
+	background-color: var(--gris-light-color);
+	border:solid 1px var(--gris-fonce-color);
+	margin-top: 20px;
+	height: 50px;
+	width: 255px;
+}
+
+.wpcf7-submit:hover {
+	color: white;
+	background-color: black;
+}
+
+.wpcf7-response-output{
+	margin-top: -20px !important;
+}
+
+#reference {
+	text-transform: uppercase;
+}
+
+
+/* Lightbox - conteneur global avec couleur de fond opaque*/
+.lightbox{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 10;
+	overflow: auto;
+	animation: lightboxin .5s;
+	transition: opacity .3s; /* Animation fermeture */
+}
+
+/* Lightbox - class ajoutée en js pour la fermeture */
+.lightbox.fadeOut{
+	opacity:0;
+}
+
+/* Lightbox - loader (svg en attente chargement image) */
+.lightbox__loader{
+	width: 38px;
+	height: 38px;
+	opacity: .5s;
+	background: url(../images/loader.svg) center center no-repeat;
+}
+
+/* Lightbox - conteneur avec image */
+.lightbox__container {
+	margin-left: 220px;
+	margin-right: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	position:relative;
+	width: 60%;
+	margin: auto;
+  }
+
+  .lightbox__container img {
+	max-width: 100%;
+	height: auto;
+	max-height: 80vh;
+	animation: lightboxin .5s;
+  }
+
+  /* Lightbox - fleche droite */
+.lightbox__next{
+	border: none;
+	color:white;
+	background-image: url(../images/lightbox-next.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color : transparent;
+	width: 25px;
+	height: 17px;
+	position: fixed;
+	top: 50%;
+	right: 10%;
+	margin-top: -9px;
+	z-index: 11;
+	cursor: pointer;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.lightbox__next span {
+	margin-right:30px;
+	font-family: "Space Mono";
+	font-size: 12px;
+}
+
+  /* Lightbox - fleche gauche */
+  .lightbox__prev{
+	border: none;
+	color:white;
+	background-image: url(../images/lightbox-prev.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color : transparent;
+	width: 25px;
+	height: 17px;
+	position: fixed;
+	top: 50%;
+	left: 10%;
+	margin-top: -9px;
+	z-index: 11;
+	cursor: pointer;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.lightbox__prev span {
+	margin-left:30px;
+	font-family: "Space Mono";
+	font-size: 12px;
+}
+
+  /* Lightbox - bouton fermer */
+  .lightbox__close{
+	border: none;
+	background-image: url(../images/fermer-lightbox.png);
+	background-color : transparent;
+	background-size: cover;
+	width: 22px;
+	height: 22px;
+	position: fixed;
+	text-indent: -3000px;
+	cursor: pointer;
+	top: 50px;
+	right: 10%;
+	z-index: 12;
+  }
+
+/* Lightbox - conteneur : référence et catégorie */
+.lightbox__infos{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 400px; /* Jquery ajuste cette largeur en fonction de l'image */
+}
+
+/* Lightbox - référence de la photo */
+.lightbox__ref{
+	z-index: 12;
+	color:white;
+	font-family: 'Poppins';
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+/* Lightbox - catégorie de la photo */
+.lightbox__categ{
+	z-index: 12;
+	color:white;
+	font-family: 'Poppins';
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+/* Lightbox - animation */
+@keyframes lightboxin {
+	from {opacity:0;}
+	to {opacity:1;}
+}
+
+
+
+
+/* MENU Navigation bar */
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+}
+
+.navbar-nav {
+    list-style: none;
+}
+
+.navbar-nav li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.navbar-nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logo a {
+	display:flex;
+	align-items: center;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+	gap: 10px;
+}
+
+.burger {
+    display: none;
+}
+
+.line {
+	height: 3px;
+	background-color: #000;
+	display: block;
+	margin: auto;
+	margin-block: 2px;
+	width: 20px;
+}
+
+/* MENU Navigation bar - Animation du menu burger */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* MENU Navigation bar - Ajouter une toile de fond au menu mobile lorsqu’il est actif.  */
+.menu-backdrop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9; /* Ensure it's below the nav-links but above other content */
+}
+
+.fixed-position {
+    overflow: hidden;
+    height: 100%;
+}
+
+
+/* MENU Navigation bar - Responsive */
+@media screen and (max-width: 768px) {
+    nav{
+		justify-content: space-around;
+	}
+	
+	.navbar-nav {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        top: 80px;
+        background-color: var(--rouge-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+		justify-content: center;
+		padding-bottom:80px;
+		gap:40px;
+        width: 100%;
+        transform: translateX(-770px);
+        transition: transform 0.5s ease-in-out;
+		z-index: 1;
+    }
+
+    .navbar-nav li {
+        opacity: 0;
+    }
+
+	.navbar-nav li a {
+		color:white;
+		font-size: 44px;
+	}
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .navbar-nav li {
+        animation: navLinkFade 0.5s ease forwards 0.5s;
+    }
+
+	.line-top-footer{
+		border-top:0;
+	}
+
+}
+
+/* Responsive Design - largeur de bloc header conteneur principal */
+@media screen and (max-width:1200px){
+	header {
+		width: 100%;
+	}
+	#navbar {
+		justify-content: space-around;
+	}
+	.page-container {
+		width: 90%;
+	}
+	footer {
+		width: 100%;
+	}
+}
+
+/* Responsive Design - Footer */
+@media screen and (max-width: 768px) {
+	footer ul {
+		flex-direction: column;
+		align-items: center;
+	}
+	footer {
+		flex-direction: column;
+		gap:0px;
+	}
+}
+
+/* Responsive Design - Page d'accueil */
+@media screen and (max-width: 768px) {
+	/* Page Accueil - Disposition des menus déroulants */
+	.filters-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+
+	/* Page Accueil - Dimension image du hero header */
+	.hero-header img {
+		width: 100%;
+		height: 253px;
+		object-fit: cover;
+	}
+
+	/* Page Accueil - Taille titre du hero header */
+	.hero-header h1 {
+		font-size: 35px;
+	}
+
+}
+
+
+/* Responsive Design - Lightbox */
+@media screen and (max-width: 1200px) {
+	/* Lightbox - cacher texte fleche navigation*/
+	.lightbox__prev span {
+		opacity: 0;
+	}
+	.lightbox__next span {
+		opacity: 0;
+	}
+}
+
+
+/* Responsive Design - Single Page */
+@media screen and (max-width: 768px) {
+	.post-single {
+		flex-direction: column-reverse;
+		align-items: center;
+		margin-top: 40px;
+		min-height: auto;
+		height: auto;
+	}
+
+	.bloc-dessous{
+		flex-direction: column;
+		align-items: center;
+		height: 150px;
+	}
+
+	.lien-contact{
+		flex-direction: column;
+		align-items: center;
+		margin-top: 20px;
+		margin-bottom: 40px;
+	}
+
+	.lien-contact p {
+		width: 100%;
+		text-align: center;
+	}
+
+	.lien-navigation {
+		display: none;
+	}
+
+	.photos-liste-title {
+		text-align: center;
+	}
+
+	.photos-cards {
+		grid-template-columns : repeat(1, 1fr);
+	}
+
+	.post-info {
+		width: 80%;
+		border-bottom: none;
+	}
+
+	.post-info h1 {
+		width: 100%;
+		font-size: 50px;
+	}
+
+	.post-photo {
+		width: 80%;
+		max-width: none !important;
+	}
+
+	.bloc-dessous {
+		border-top : 1px solid black;
+	}
+
+
+}
+
+@media screen and (max-width:500px){
+	.bloc-dessous{
+		height: 200px;
+	}
+}
+
+
