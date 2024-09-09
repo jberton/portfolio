@@ -25,7 +25,7 @@
    
     // Options pour l'observateur d'intersection
     const options = {
-        threshold: 0.05
+        threshold: 0.03
     };
     // Instanciation de l'observateur d'intersection
     const observer = new IntersectionObserver(function (entries, observer) {
@@ -157,7 +157,7 @@ burger.addEventListener('click', () => {
             // Afficher la valeur sélectionnée sur le bouton du menu déroulant
             $valueselected = $(this).attr('data-value');
                 if ($valueselected === undefined) {
-                    document.getElementById('btncat').innerText = "CATÉGORIES";
+                    document.getElementById('btncat').innerText = "TYPE DE PROJET";
                 }
                 else {
                     document.getElementById('btncat').innerText = $valueselected;
@@ -175,10 +175,10 @@ burger.addEventListener('click', () => {
             // Afficher la valeur sélectionnée sur le bouton du menu déroulant
             $valueselected = $(this).attr('data-value');
                 if ($valueselected === undefined) {
-                    document.getElementById('btnform').innerText = "FORMATS";
+                    document.getElementById('btncms').innerText = "CMS";
                 }
                 else {
-                    document.getElementById('btnform').innerText = $valueselected;
+                    document.getElementById('btncms').innerText = $valueselected;
                 }
             // Changer la class + pivoter la fleche vers le haut ou vers le bas
             menu2.classList.replace("visible", "hide");
@@ -193,7 +193,7 @@ burger.addEventListener('click', () => {
             // Afficher la valeur sélectionnée sur le bouton du menu déroulant
             $valueselected = $(this).attr('data-value');
                 if ($valueselected === undefined) {
-                    document.getElementById('btntri').innerText = "TRIER PAR";
+                    document.getElementById('btntri').innerText = "TRIER PAR DATE";
                 }
                 else {
                     document.getElementById('btntri').innerText = $valueselected;

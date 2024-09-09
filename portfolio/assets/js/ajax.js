@@ -23,12 +23,12 @@
                 postid: $(this).data('postid'),
                 currentpage: pageactuelle,
                 postcateg: $('#btncat').text(),
-                postformat: $('#btnform').text(),
+                postcms: $('#btncms').text(),
                 postorder: $('#btntri').text(),
             }
 
             // Pour vérifier qu'on a bien récupéré les données
-            console.debug(ajaxurl);
+            //console.debug(ajaxurl);
             //console.log(data);
 
             // Requête Ajax en JS natif via Fetch
@@ -60,14 +60,14 @@
                 
                 // Recharger le fichier lightbox.js pour enregistrer les évènements
                 var url = window.location.href;
-                $.getScript(url+"wp-content/themes/motaphoto/assets/js/lightbox.js?ver=1.0");  
+                $.getScript(url+"wp-content/themes/portfolio/assets/js/lightbox.js?ver=1.0");  
             });
         });
     });
 
 
   $(document).ready(function () {
-    // Lancer le sript après le choix d'une catégorie
+    // Lancer le sript après le choix d'un type de projet
     $("#menu-class-1 li").on('click', function(e) {
 
         // Initialiser la pagination
@@ -87,7 +87,7 @@
             postid: $(this).data('postid'),
             currentpage: pageactuelle,
             postcateg: $(this).data("id"),
-            postformat: $('#btnform').text(),
+            postcms: $('#btncms').text(),
             postorder: $('#btntri').text(),
         }
 
@@ -126,14 +126,14 @@
 
                 // Recharger le fichier JS pour enregistrer les évènements
                 var url = window.location.href;
-                $.getScript(url+"wp-content/themes/motaphoto/assets/js/lightbox.js?ver=1.0");
+                $.getScript(url+"wp-content/themes/portfolio/assets/js/lightbox.js?ver=1.0");
             });
         });
     });
 
 
     $(document).ready(function () {
-        // Lancer le sript après le choix d'un format
+        // Lancer le sript après le choix d'un CMS
         $("#menu-class-2 li").on('click', function() {
 
         // Initialiser la pagination
@@ -150,7 +150,7 @@
               postid: $(this).data('postid'),
               currentpage: pageactuelle,
               postcateg: $('#btncat').text(),
-              postformat: $(this).data("id"),
+              postcms: $(this).data("id"),
               postorder: $('#btntri').text(),
           }
   
@@ -189,7 +189,7 @@
 
                 // Recharger le fichier JS pour enregistrer les évènements
                 var url = window.location.href;
-                $.getScript(url+"wp-content/themes/motaphoto/assets/js/lightbox.js?ver=1.0");
+                $.getScript(url+"wp-content/themes/portfolio/assets/js/lightbox.js?ver=1.0");
             });
         });
     });
@@ -213,7 +213,7 @@
               postid: $(this).data('postid'),
               currentpage: pageactuelle,
               postcateg: $('#btncat').text(),
-              postformat: $('#btnform').text(),
+              postcms: $('#btncms').text(),
               postorder: $(this).data("id"),
           }
   
@@ -252,7 +252,7 @@
 
                 // Recharger le fichier JS pour enregistrer les évènements
                 var url = window.location.href;
-                $.getScript(url+"wp-content/themes/motaphoto/assets/js/lightbox.js?ver=1.0");
+                $.getScript(url+"wp-content/themes/portfolio/assets/js/lightbox.js?ver=1.0");
             });
         });
     });

@@ -37,24 +37,23 @@
 		// Définir tableau avec 3 photos pour la navigation
 			$projectIDs = array( $next_id, $current_id, $previous_id );
 		?>
+			<h1 class="h1-singlepage"><?php the_title(); ?></h1>
 			<div class="post-single">
 				<!--  Informations sur la photo active -->
+				
 				<div class="post-info">
-					<h1><?php the_title(); ?></h1>
-					<p>RÉFÉRENCE : <span id="ref-photo"><?php the_field('reference'); ?></span></p>
-					<p>CATÉGORIE : <?php
-						$categ = get_the_terms( get_the_ID(), 'categorie' );
+					<p><b><?php the_field('objectif'); ?></b></p>
+					<p><b>Code :</b> <span id="ref-photo"><?php the_field('langage'); ?></span></p>
+					<p><b>Type de projet :</b> <?php
+						$categ = get_the_terms( get_the_ID(), 'typeprojet' );
 						$categ = join(', ', wp_list_pluck( $categ , 'name') );
 						echo $categ;
 						?>
 					</p>
-					<p>FORMAT : <?php 
-						$format = get_the_terms( get_the_ID(), 'format' );
-						$format = join(', ', wp_list_pluck( $format , 'name') );
-						echo $format; ?>
-					</p>
-					<p>TYPE : <?php the_field('type'); ?></p>
-					<p>ANNÉE : <?php echo get_the_date('Y');?></p>
+					<p><b>Date  :</b> <?php echo get_the_date('Y');?></p>
+					<p><b>Lien GitHub :</b> <?php the_field('lien_github'); ?></p>
+					<p><b>Lien du site :</b> <?php the_field('lien_du_site'); ?></p>
+					
 				</div>
 				<!--  Photos précédente, active, suivante -->
 				<div class="post-photo">
@@ -64,11 +63,7 @@
 
 
 			<div class="bloc-dessous">
-				<!--  Lien de contact sur la photo active -->
-				<div class="lien-contact">
-					<p>Cette photo vous intéresse ?</p>
-					<button id="contact-ref" type="button">Contact</button>
-				</div>
+
 				
 				<!--  Liens pour naviguer parmi les photos -->
 				<div class="lien-navigation">
@@ -96,39 +91,49 @@
 				</div>
 			</div>
 
-		<!-- Zone de photos apparentées -->
-		<div class="photos-liste-title">
-			<p>VOUS AIMEREZ AUSSI</p>
+		<!-- Zone de description du projet -->
+		<div class="projet-description">
+			<h2>Description du projet</h2>
+			<p><?php the_field('description'); ?></p>
 		</div>
+
+		<!--  Lien de contact -->
+		<div class="lien-contact">
+			<p>Vous avez un projet web à développer ?</p>
+			<button id="contact-ref" class="btn-action" type="button">Contactez moi</button>
+		</div>
+
+		<!-- Zone de photos apparentées -->
+		<div class="projet-slider">
+			<h2>Vous aimerez aussi</h2>
 
 		<!-- Exécuter la WP Query avec les arguments pour définir ce qu'on récupère -->
 		<?php 
 		$listephoto = new WP_Query(array(
 			'post_type' => 'portfolio', // Custom Post type
-			'posts_per_page' => 2, // Nombre de photos par page
+			'posts_per_page' => -1, // Nombre de photos par page
 			'order' => 'DESC', // Ordre ASCendant ou DESCendant
 			'orderby' => 'date', // Ordre par date
 			'post__not_in' => array($current_id), // Exclure la photo principale pour éviter doublon
-			'tax_query' => array(
-				array (
-					'taxonomy' => 'categorie',
-					'field' => 'slug',
-					'terms' => $categ, // Utiliser la catégorie de la photo principale
-				)
-				), 
 			));
 		?>
 
-			<?php if($listephoto->have_posts()) : ?>
-				<div class="photos-cards">
-					<?php while($listephoto->have_posts()) : $listephoto->the_post(); ?>
-						<!-- Bloc d’affichage d’une photo de la liste -->
-						<?php get_template_part( 'template-parts/photo_block', 'none' );?>
-					<?php endwhile; ?>
-				</div>
-			<?php endif; ?>
+			<swiper-container class="swiper-container" pagination="false" effect="coverflow" grab-cursor="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" autoplay="true" autoplay-delay="1000" loop="true" speed="2000" centered-slides="true">
 
-		<?php endwhile; ?>
+				<?php
+				while ( $listephoto->have_posts() ) {
+					$listephoto->the_post();
+					echo '<swiper-slide><a href="' . get_permalink() . '">';
+					echo get_the_post_thumbnail( get_the_ID(), 'large' );
+					echo '<figcaption>';
+					the_title();
+					echo'</figcaption>';
+					echo '</a></swiper-slide>';
+				}
+				endwhile; ?>  
+            </swiper-container>
+		</div>		
+		
 	<?php endif; ?>
 
 	<!--  Réinitialiser à la requête principale -->

@@ -9,13 +9,8 @@ Version: 1.0
 
 /*GENERAL*/
 :root {
-	--rouge-color: #E00000;
-	--rouge-secondaire-color: #FE5858;
-	--rouge-tertiaire-color: #FFD6D6;
-	--bleu-fonce-color: #313144;
-	--gris-fonce-color: #C4C4C4;
-	--gris-medium-color: #D8D8D8;
-	--gris-light-color: #E5E5E5;
+	--btn-color: rgb(112,48,160);
+	--header-height: 100px; /*pour gérer les liens d'ancrage avec le sticky menu*/
   }
 
 /*  Chargement des polices Google */
@@ -37,16 +32,46 @@ body {
 	font-size: 16px;
 	margin:0;
 	padding:0;
-	height: 100%;
+	height: 100% !important;
 }
 
 h2 {
 	font-family: "Space Mono";
 	font-size: 25px;
 	text-decoration: underline;
-	text-decoration-color: rgb(112,48,160);
+	text-decoration-color: var(--btn-color);
 	text-underline-offset: 10px;
 	text-decoration-thickness: 4px;
+}
+
+/* Mise en forme du bouton action */
+.btn-action, .js-load-photos{
+	color: #ffffff;
+	width: 150px;
+    background-color: var(--btn-color);
+	text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 18px;
+	border-radius: 10px;
+	border-bottom: 5px solid rgb(66,28,94);
+	transition: all .1s;
+	-webkit-transition: all .1s;
+	display: flex;
+	justify-content: center;
+	margin: auto;
+}
+
+.btn-action:active, .js-load-photos:active {
+	transform: translate(0, 5px);
+	-webkit-transform: translate(0, 5px);
+	border-bottom: 1px solid;
+}
+
+.btn-action:hover {
+	color: #ffffff;
+    background-color: rgba(111, 48, 160, 0.801);
 }
 
 /* Footer */
@@ -70,9 +95,16 @@ footer ul {
 }
 
 footer a {
-	text-decoration: none;
-	color: black;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+	background: linear-gradient(to top, var(--btn-color) 0%, var(--btn-color) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+	transition: background-size .5s;
 }
+
+footer a:hover {
+	background-size: 100% 100%;
+  }
 
 .line-top-footer{
 	border-top: 1px solid black;
@@ -82,8 +114,11 @@ footer a {
 
 /* Header */
 header {
-	width: 1200px;
-	margin:auto;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	background-color: #FFF;
+	height: var(--header-height);
 }
 
 header ul {
@@ -107,6 +142,10 @@ header li a{
 
 .logo img {
 	height: 90px;	
+}
+/* Lorsqu’un lien d’ancrage est activé, le navigateur se déplace vers la section ciblée en lui attribuant une marge supérieure de 100 px + 0px pour eviter d'être masqué par le sticky menu */
+.section {
+	scroll-margin-top: calc(var(--header-height) + 0px);
 }
 
 /* Page Accueil - Hero Header */
@@ -182,7 +221,7 @@ header li a{
 	top: 20%;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.8);
-
+	padding-bottom: 10px;
 	animation-name: title-load;
 	animation-duration: 1.5s;
 	animation-timing-function: ease-in-out;
@@ -190,14 +229,10 @@ header li a{
 	animation-fill-mode: forwards;
   }
 
-/* Page Accueil - Hero Header - Effet de parallaxe titre sur vidéo */
-
-
 /* Page Accueil - Conteneur filtres + photos */
 .page-container {
 	width: 1200px;
 	margin: auto;
-	margin-bottom: 30px;
 }
 
 /* Page Accueil - Disposition du Profil */
@@ -205,10 +240,19 @@ header li a{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: rgb(248,249,250);
+	margin-left: calc( -50vw + 50%);
+	margin-right: calc( -50vw + 50%);
+	margin-top:-6px;
+}
+.profil-container h2 {
+	padding-top: 20px;
 }
 
 .profil-container p {
 	text-align: center;
+	width: 900px;
+	margin-bottom: 40px;
 }
 
 /* Page Accueil - Conteneur Profil gestion projet et softs skills */
@@ -223,14 +267,25 @@ header li a{
 	width: 80%;
 }
 
+/* Page Accueil - Conteneur Compétences*/
+#competences {
+	background-color: rgb(248,249,250);
+	margin-left: calc( -50vw + 50%);
+	margin-right: calc( -50vw + 50%);
+}
+
 /* Page Accueil - Conteneur Compétences Progressbar et CV*/
 #competences h2{
 	text-align: center;
+	padding: 30px;
 }
 .competences-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	width: 1200px;
+	margin: auto;
+	padding-bottom: 60px;
 }
 
 /* Page Accueil - Disposition Compétences Progressbar */
@@ -271,7 +326,7 @@ progress{
   .progress-container__bar {
     width: 0;
     height: 10px;
-    background-color: rgb(112,48,160);
+    background-color: var(--btn-color);
     border-radius: 4px;
     text-align: center;
     line-height: 30px;
@@ -322,7 +377,6 @@ progress{
 
 
 /* Page Accueil - Disposition Compétences cv image + bouton DL*/
-
 .competences-cv {
 	display: flex;
 	flex-direction: column;
@@ -333,35 +387,17 @@ progress{
 .mon-cv {
 	object-fit: contain;
 	width: 90%;
+	margin-bottom: 30px;
 }
 
-.btn-action {
-	color: #ffffff;
-    background-color: rgb(112,48,160);
-	text-decoration: none;
-    border: none;
-    cursor: pointer;
-    padding: 12px;
-    font-size: 18px;
-	border-radius: 10px;
-	border-bottom: 5px solid rgb(66,28,94);
-	transition: all .1s;
-	-webkit-transition: all .1s;
-	display: flex;
-	margin: auto;
+/* Page Accueil - Section Portfolio */
+#portfolio {
+	padding-top: 20px;
 }
 
-.btn-action:active {
-	transform: translate(0, 5px);
-	-webkit-transform: translate(0, 5px);
-	border-bottom: 1px solid;
+#portfolio h2 {
+	margin-bottom: 40px;
 }
-
-.btn-action:hover {
-	color: #ffffff;
-    background-color: rgba(111, 48, 160, 0.801);
-}
-
 
 /* Page Accueil - Disposition des menus déroulants */
 .filters-container {
@@ -418,7 +454,7 @@ li {
 }
 
 .menu-deroulant li:hover {
-	background-color:var(--rouge-color);
+	background-color: var(--btn-color);
 	color: white;
 	transition: all 0.5s;
 	}
@@ -441,43 +477,153 @@ li {
 
 
 #menu-d-1:hover,  #menu-d-2:hover, #menu-d-3:hover{
-	border-color: #215AFF;
+	border-color: var(--btn-color);
 }
 
 .filtreactif {
-	border-color: #215AFF !important;
+	border-color: var(--btn-color);
 }
 
 .filtreinactif {
 	border-color: var(--gris-fonce-color);
 }
 
-
-/* Page Accueil - position du bouton Charger plus */
-.js-load-photos {
-	display: block;
+/* Page Accueil - Formulaire de contact */
+#contact {
 	margin: auto;
+	margin-top: 60px;
+	background-color: rgb(248,249,250);
+	margin-left: calc( -50vw + 50%);
+	margin-right: calc( -50vw + 50%);
 }
 
-/* Page Accueil + single-photos - Mise en forme du bouton */
-.js-load-photos, .lien-contact button{
-	width: 272px;
+.text-contact {
+	padding-top: 25px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.contact-conteneur {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	height: 630px;
+	padding-bottom: 50px;
+}
+
+.contact-formulaire {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	margin-left: 80px;
+	margin-right: -150px;
+}
+
+.wpcf7-not-valid-tip {
+	margin-bottom: -20px;
+}
+
+.wpcf7-form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.wpcf7-form label{
+	margin-top: 20px;
+	text-align: left;
+}
+
+.wpcf7-form-control-wrap{
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+}
+
+.wpcf7-form-control-wrap input {
+	width: 350px;
+	height: 40px;
+	border:solid 1px var(--gris-fonce-color);
+	border-radius: 10px;
+	padding: 0 5px;
+	font-family: "Poppins";
+	font-size: 16px;
+	color: var(--bleu-fonce-color);
+}
+
+.wpcf7-form-control-wrap textarea {
+	width: 350px;
+	height: 210px;
+	border:solid 1px var(--gris-fonce-color);
+	border-radius: 10px;
+	padding: 5px 5px;
+	font-family: "Poppins";
+	font-size: 16px;
+	color: var(--bleu-fonce-color);
+}
+
+.wpcf7-submit {
+	margin-top: 20px;
 	height: 50px;
-	background-color: var(--gris-medium-color);
-	font-family: "Space Mono";
-	font-size: 14px;
-	font-weight: 400;
-	border: none;
-	cursor: pointer;
-	transition: all 0.2s linear;
+	width: 255px;
 }
 
-.js-load-photos:hover, .lien-contact button:hover {
-	background-color: black;
-	color: white;
-	font-weight: 700;
-	transition: all 0.2s linear;
+.wpcf7-response-output{
+	margin-top: -20px !important;
 }
+
+/* Page Accueil - Contact - Mes coordonnées */
+.contact-mesinfos {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 95%;
+	width: 40%;
+}
+
+.contact-mesinfos p {
+	width: 100%;
+}
+
+.contact-logo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+}
+
+.contact-logo img{
+    width: 40px;
+}
+
+.brighten img {
+	filter: brightness(100%);
+	-webkit-filter: brightness(100%);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+	}
+	
+	.brighten img:hover {
+	filter: brightness(150%);
+	-webkit-filter: brightness(150%);
+	}
+
+.grow img{
+	transition: 1s ease;
+	width: 20%;
+	margin-top: 50px;
+	}
+	
+	.grow img:hover{
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+	transition: 1s ease;
+	}
 
 
 /* Page single-photos - blocs haut de page */
@@ -485,8 +631,6 @@ li {
 	display : flex;
 	flex-direction: row;
 	justify-content: space-between;
-	min-height: 480px;
-	height: calc(100vh - 200px);
 }
 
 /* Page single-photos - bloc image haut */
@@ -496,9 +640,10 @@ li {
 }
 .post-photo img{
 	width: 100%;
-	height: 100%;
+	height: 400px; /* 100% en responsive */
 	object-fit: contain;
 	object-position: bottom;
+	border: 1px solid #8080806b;
 }
 /* Page single-photos - bloc infos haut */
 .post-info {
@@ -506,29 +651,33 @@ li {
 	flex-direction: column;
 	justify-content: flex-end;
 	width: 50%;
-	border-bottom: 1px solid black;
-	padding-bottom: 20px;
+	height: 400px; /* supp en responsive */
 	text-transform: uppercase;
 }
 
 /* Page single-photos - bloc infos haut - Titre */
-.post-info h1 {
+.h1-singlepage {
 	font-family: "Space Mono";
-	font-style: italic;
-	font-size: 70px;
-	font-weight: 300;
-	line-height: 80px;
-	width: 100%;
-	margin-bottom: 20px;
-	word-spacing: -20px;
+	font-size: 40px;
+	text-decoration: underline;
+	text-decoration-color: var(--btn-color);
+	text-underline-offset: 15px;
+	text-decoration-thickness: 4px;
+	margin-bottom: 10px;
 }
 
 /* Page single-photos - disposition des blocs en dessous de la photo active */
 .bloc-dessous {
 	display: flex;
 	flex-direction: row;
-	border-bottom: 1px solid black;
+	justify-content: flex-end;
 	height: 118px;
+}
+
+/* Page single-photos - bloc description projet */
+.projet-description {
+	margin-top: -60px;
+	margin-bottom: 50px;
 }
 
 /* Page single-photos - bloc lien contact */
@@ -541,7 +690,7 @@ li {
 }
 
 .lien-contact p{
-	font-size: 14px;
+	font-size: 18px;
 }
 
 /* Page single-photos - bloc lien navigation */
@@ -587,12 +736,50 @@ li {
 	object-fit: cover;
 }
 
-/* Template Photo_block */
-.photos-liste-title {
-	font-family: "Space Mono";
-	font-size: 22px;
-	margin-top: 60px;
+/* Page single-photos - Slider */
+
+.projet-slider {
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
+.projet-slider h2 {
+	margin-bottom: 50px;
+}
+
+
+swiper-container {
+	width: 100%;
+	margin: auto;
+	margin-top: 30px;
+
+  }
+  
+  swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 400px;
+	border: 1px solid rgba(128, 128, 128, 0.315);
+  }
+  swiper-slide img {
+	width: 100%;
+	height: 300px;
+	object-fit: contain;
+  }
+
+  swiper-slide figcaption {
+	background-color: #00000091;
+	color: #fff;
+	padding: 3px;
+	text-align: center;
+  }
+
+  swiper-slide a {
+	text-decoration: none;
+  }
+
+
+
+/* Template Photo_block */
 
 .photos-cards {
 	display: grid;
@@ -710,116 +897,6 @@ li {
 .overlay-image .hover {
 	background-color: rgba(0,0,0,0.5);
    }
-
-
-
-/* Formulaire de contact */
-.popup-overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:#00000060;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    z-index: 999; /* à enlever */
-    top:0;
-    left:0;
-	font-family: "Poppins";
-	color:var(--bleu-fonce-color);
-	font-size: 12px;
-	visibility: hidden;
-	opacity: 0;
-	transform: scale(0);
-}
-
-.popup-overlay-visible{
-	visibility: visible !important;
-	opacity: 1;
-	transform: scale(1);
-	transition: 1s ease-in-out;
-}
-
-.popup-container{
-	background:white;
-    border:3px solid black;
-    width:591px;
-	max-height:770px;
-    position:relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.popup-header{
-	background-image: url(../images/contact-nathalie-mota-photographe.png);
-	background-repeat: repeat-x;
-	background-position: left 47% top 0%;
-	background-size: cover;
-	height:106px;
-	width:100%;
-	margin-top: 10px;
-}
-
-.wpcf7-form{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.wpcf7-form label{
-	margin-top: 20px;
-}
-
-.wpcf7-form-control-wrap{
-	display: flex;
-	flex-direction: column;
-	width: 263px;
-	margin-top: 5px;
-}
-
-.wpcf7-form-control-wrap input {
-	width: 255px;
-	height: 40px;
-	border:solid 1px var(--gris-fonce-color);
-	border-radius: 10px;
-	padding: 0 5px;
-	font-family: "Poppins";
-	font-size: 12px;
-	color: var(--bleu-fonce-color);
-}
-
-.wpcf7-form-control-wrap textarea {
-	height: 210px;
-	border:solid 1px var(--gris-fonce-color);
-	border-radius: 10px;
-	padding: 5px 5px;
-	font-family: "Poppins";
-	font-size: 12px;
-	color: var(--bleu-fonce-color);
-}
-
-.wpcf7-submit {
-	font-family: "Space Mono";
-	background-color: var(--gris-light-color);
-	border:solid 1px var(--gris-fonce-color);
-	margin-top: 20px;
-	height: 50px;
-	width: 255px;
-}
-
-.wpcf7-submit:hover {
-	color: white;
-	background-color: black;
-}
-
-.wpcf7-response-output{
-	margin-top: -20px !important;
-}
-
-#reference {
-	text-transform: uppercase;
-}
 
 
 /* Lightbox - conteneur global avec couleur de fond opaque*/
@@ -977,9 +1054,10 @@ li {
 nav {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	height: 100px;
+	border-bottom: 2px solid rgb(248,249,250);
 }
 
 .navbar-nav {
@@ -995,7 +1073,14 @@ nav {
     color: black;
     text-decoration: none;
     font-size: 20px;
+	background: linear-gradient(to top, var(--btn-color) 0%, var(--btn-color) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+	transition: background-size .5s;
 }
+
+.navbar-nav a:hover {
+	background-size: 100% 100%;
+  }
+
 
 .logo a {
 	display:flex;
@@ -1249,6 +1334,58 @@ nav {
 	.bloc-dessous{
 		height: 200px;
 	}
+}
+
+
+
+
+
+/* Animation apparition pour chaque section */
+.profil-container.is-visible, .profil-suite-container.is-visible, #competences.is-visible, #portfolio.is-visible, #contact.is-visible {
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari et Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+		transform: translateY(400px);
+    }
+    to {
+        opacity:1;
+		transform: translateY(0px);
+    }
+}
+@-moz-keyframes fadein { /* sur Firefox */
+    from {
+        opacity:0;
+		transform: translateY(400px);
+    }
+    to {
+        opacity:1;
+		transform: translateY(0px);
+    }
+}
+@-webkit-keyframes fadein { /* sur Safari et Chrome */
+    from {
+        opacity:0;
+		transform: translateY(400px);
+    }
+    to {
+        opacity:1;
+		transform: translateY(0px);
+    }
+}
+@-o-keyframes fadein { /* sur Opera */
+    from {
+        opacity:0;
+		transform: translateY(400px);
+    }
+    to {
+        opacity: 1;
+		transform: translateY(0px);
+    }
 }
 
 

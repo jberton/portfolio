@@ -9,7 +9,7 @@
                 src="<?php echo get_stylesheet_directory_uri() . '/assets/video/reunion developpement web.mp4'; ?>"
                 type="video/mp4">
             </video>
-            <div class="titre-parallaxe" data-top="top:73.5%" data-bottom="top:20%">
+            <div class="titre-parallaxe" data-0="top:30%" data-550="top:76%">
 				<h1>Je suis développeur web</h1>
                 <p>Spécialisé dans la création et le développement de sites Wordpress sur-mesure et performants.</p>
 			</div>
@@ -20,7 +20,7 @@
     <div class="page-container">
 
         <!-- PROFIL A Propos de moi -->
-        <div id="profil" class="profil-container">
+        <div id="profil" class="profil-container animate-on-scroll section">
             <h2>À PROPOS DE MOI</h2>
             <p>Bienvenue sur mon portfolio ! Je m’appelle Jérémie Berton, développeur web basé à Nantes.<br><br>
             Ma spécialité c’est de créer et développer des sites Wordpress sur mesure adapté aux demandes du client et à son budget. Je créé des interfaces simples d'utilisation pour que le client puisse facilement mettre à jour le contenu du site sans connaître les langages de programmation web.<br><br>
@@ -30,7 +30,7 @@
         </div>
 
         <!-- PROFIL Projet et softs skills -->
-        <div class="profil-suite-container">
+        <div class="profil-suite-container animate-on-scroll">
             <div class="gestion-projet">
                 <h2>Comment je mène un projet web ?</h2>
                 <img class="roue-projet" src="<?= get_stylesheet_directory_uri() . "/assets/images/etapes-projet-web.jpg" ?>" alt="Etapes projet développement site web" />
@@ -50,7 +50,7 @@
         </div>
 
         <!-- PROFIL Projet et softs skills -->
-         <div id="competences">
+         <div id="competences" class="animate-on-scroll section">
             <h2>Mes compétences</h2>
             <div class="competences-container">
                 
@@ -131,7 +131,7 @@
         </div>
 
         <!-- PORTFOLIO zone de filtres + projets réalisés -->
-        <div id="competences">
+        <div id="portfolio" class="animate-on-scroll section">
             <h2>Mon portfolio</h2>
 
             <!-- Zone de filtres -->
@@ -150,9 +150,9 @@
                             $categ = get_the_terms( get_the_ID(), 'typeprojet' );
                             $categ = join(', ', wp_list_pluck( $categ , 'name') );
                             $tableauCateg[] = $categ; // Incrémenter le tableau des catégories
-                            $format = get_the_terms( get_the_ID(), 'format' );
-                            $format = join(', ', wp_list_pluck( $format , 'name') );
-                            $tableauFormat[] = $format; // Incrémenter le tableau des formats
+                            $cms = get_the_terms( get_the_ID(), 'cms' );
+                            $cms = join(', ', wp_list_pluck( $cms , 'name') );
+                            $tableauCMS[] = $cms; // Incrémenter le tableau des formats
                         ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
@@ -163,17 +163,17 @@
                 <?php 
                 // Supprimer les doublons dans les tableaux
                 $arrayCateg = array_unique($tableauCateg);
-                $arrayFormat = array_unique($tableauFormat);
+                $arrayCMS = array_unique($tableauCMS);
                 ?>
 
                 <div class="menu-deroulant">
-                    <button id="menu-d-1" class="filtreinactif" ><span id="btncat">CATÉGORIES</span>
+                    <button id="menu-d-1" class="filtreinactif" ><span id="btncat">TYPE DE PROJET</span>
                         <a><img id="menu-f-1" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>"></a>
                     </button>
                     <ul id="menu-class-1" class="hide">
                         <a href="#" class="clicmenu1">
                             <li
-                                data-id="CATÉGORIES" 
+                                data-id="TYPE DE PROJET" 
                                 data-postid="<?php echo get_the_ID(); ?>"
                                 data-nonce="<?php echo wp_create_nonce('load_photos'); ?>"
                                 data-action="load_photos"
@@ -196,13 +196,13 @@
                     </ul>
                 </div>
                 <div class="menu-deroulant">
-                    <button id="menu-d-2" class="filtreinactif"><span id="btnform">FORMATS</span>
+                    <button id="menu-d-2" class="filtreinactif"><span id="btncms">CMS</span>
                         <a><img id="menu-f-2" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>"></a>
                     </button>
                     <ul id="menu-class-2" class="hide">
                         <a href="#" class="clicmenu2">
                             <li
-                                data-id="FORMATS" 
+                                data-id="CMS" 
                                 data-postid="<?php echo get_the_ID(); ?>"
                                 data-nonce="<?php echo wp_create_nonce('load_photos'); ?>"
                                 data-action="load_photos"
@@ -210,7 +210,7 @@
                                 &ensp;
                             </li>
                         </a>
-                        <?php foreach($arrayFormat as $value) { ?>
+                        <?php foreach($arrayCMS as $value) { ?>
                             <a href="#" class="clicmenu2" data-value="<?php echo $value ?>"> 
                                 <li 
                                     data-id="<?php echo $value ?>" 
@@ -225,7 +225,7 @@
                     </ul>
                 </div>
                 <div class="menu-deroulant">
-                    <button id="menu-d-3" class="filtreinactif"><span id="btntri">TRIER PAR</span>
+                    <button id="menu-d-3" class="filtreinactif"><span id="btntri">TRIER PAR DATE</span>
                         <a><img id="menu-f-3" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>"></a>
                     </button>
                     <ul id="menu-class-3" class="hide">
@@ -239,24 +239,24 @@
                                 &ensp;
                             </li>
                         </a>
-                        <a href="#" class="clicmenu3" data-value="à partir des plus récentes">
+                        <a href="#" class="clicmenu3" data-value="à partir des plus récents">
                             <li
                                 data-id="DESC" 
                                 data-postid="<?php echo get_the_ID(); ?>"
                                 data-nonce="<?php echo wp_create_nonce('load_photos'); ?>"
                                 data-action="load_photos"
                                 data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>">
-                                à partir des plus récentes
+                                à partir des plus récents
                             </li>
                         </a>
-                        <a href="#" class="clicmenu3" data-value="à partir des plus anciennes">
+                        <a href="#" class="clicmenu3" data-value="à partir des plus anciens">
                             <li
                                 data-id="ASC" 
                                 data-postid="<?php echo get_the_ID(); ?>"
                                 data-nonce="<?php echo wp_create_nonce('load_photos'); ?>"
                                 data-action="load_photos"
                                 data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>">
-                                à partir des plus anciennes
+                                à partir des plus anciens
                             </li>
                         </a>
                     </ul>
@@ -284,20 +284,46 @@
                     <?php endif; ?>   
             </div>
             <button
-                    class="btn-action"
-                    data-postid="<?php echo get_the_ID(); ?>"
-                    data-maxpage= "<?php echo ($listephoto->max_num_pages) ?>"
-                    data-nonce="<?php echo wp_create_nonce('load_photos'); ?>"
-                    data-action="load_photos"
-                    data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>"
-                >
-                Charger plus
+                class="js-load-photos"
+                data-postid="<?php echo get_the_ID(); ?>"
+                data-maxpage= "<?php echo ($listephoto->max_num_pages) ?>"
+                data-nonce="<?php echo wp_create_nonce('load_photos'); ?>"
+                data-action="load_photos"
+                data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>"
+            >
+            Charger plus
             </button>
         </div>
 
-        <!-- PORTFOLIO zone de filtres + projets réalisés -->
-        <div id="contact">
-            <h2>Contactez-moi</h2>
+        <!-- CONTACT -->
+        <div id="contact" class="animate-on-scroll section">
+            <div class="text-contact">
+                <h2>Contactez-moi</h2>
+                <p>Vous avez un projet ?<br>N’hésitez pas à me contacter.</p>
+            </div>
+            <div class="contact-conteneur">
+                <div class="contact-formulaire">
+                    <?php
+                    // On insère le formulaire de contact
+                    echo do_shortcode('[contact-form-7 id="3517b85" title="Formulaire de contact"]');
+                    ?>
+                </div>
+                <div class="contact-mesinfos">
+                    <div class="contact-logo">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-email.jpg" ?>" alt="email jeremie berton">
+                        <p>contact@jeremieberton.fr</p>
+                    </div>
+                    <div class="contact-logo">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-tel.png" ?>" alt="téléphone jeremie berton">
+                        <p>06 81 46 96 62</p>
+                    </div>
+                    <div class="brighten grow">
+                    <a href="https://www.linkedin.com/in/jérémie-berton-49b46611a" target="_blank" title="Linkedin Jérémie Berton Développeur web">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/Linkedin-jeremie-berton-developpeur-web.png" ?>" alt="Linkedin Jérémie Berton Développeur web">
+                    </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

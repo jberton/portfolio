@@ -8,6 +8,7 @@ add_action( 'wp_enqueue_scripts', 'load_css' );
 
 // Chargement du Javascript
 function load_javascript(){
+    wp_enqueue_script( "swiper-js", "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js", array(), false, true);
     wp_enqueue_script( "skrollr-js", get_stylesheet_directory_uri() . "/assets/js/skrollr.min.js", array(), false, true);
     wp_enqueue_script( "custom-js", get_stylesheet_directory_uri() . "/assets/js/script.js", array(), false, true );
     wp_enqueue_script( "lightbox", get_stylesheet_directory_uri() . "/assets/js/lightbox.js", [ 'jquery' ], '1.0', false);
@@ -72,24 +73,24 @@ function load_photos() {
 
         // Définition variables requete charger plus
         $currentpage = intval( $_POST['currentpage'] );
-        $posts_per_page = 8;
+        $posts_per_page = 4;
 
-        // Définition variable requete avec filtre catégorie, format, ordre de tri
+        // Définition variable requete avec filtre Type de projet, CMS, ordre de tri
         $categ = sanitize_text_field( $_POST['postcateg'] );
-        $format = sanitize_text_field( $_POST['postformat'] );
+        $cms = sanitize_text_field( $_POST['postcms'] );
         $order = sanitize_text_field( $_POST['postorder'] );
-            if($order==='à partir des plus anciennes'){
+            if($order==='à partir des plus anciens'){
                 $order = 'ASC';
             }
-            if($order==='à partir des plus récentes'){
+            if($order==='à partir des plus récents'){
                 $order = 'DESC';
             }
 
         // Construction de la requete
         // Si filtre appliqué : ordre de tri par date
-        if ($order != undefined && $order != "TRIER PAR") {
+        if ($order != undefined && $order != "TRIER PAR DATE") {
             $args = array(
-                'post_type' => 'photos', // Custom Post type
+                'post_type' => 'portfolio', // Custom Post type
                 'posts_per_page' => $posts_per_page, // Nombre de photos par page
                 'order' => $order, // Ordre ASCendant ou DESCendant
                 'orderby' => 'date', // Ordre par date
@@ -99,7 +100,7 @@ function load_photos() {
         else {
         // Si aucun filtre ordre date
             $args = array(
-                'post_type' => 'photos', // Custom Post type
+                'post_type' => 'portfolio', // Custom Post type
                 'posts_per_page' => $posts_per_page, // Nombre de photos par page
                 'order' => 'DESC', // Ordre ASCendant ou DESCendant
                 'orderby' => 'date', // Ordre par date
@@ -108,10 +109,10 @@ function load_photos() {
             }
 
             // Si filtre appliqué : Catégorie seulement
-            if ($categ != undefined && $categ != "CATÉGORIES" && $format === "FORMATS") {
+            if ($categ != undefined && $categ != "TYPE DE PROJET" && $cms === "CMS") {
                 $args['tax_query'] = array(
                       array(
-                        'taxonomy' => 'categorie',
+                        'taxonomy' => 'typeprojet',
                         'field' => 'slug',
                         'terms' => $categ, // Utiliser la catégorie sélectionnée
                       ),
@@ -119,29 +120,29 @@ function load_photos() {
             }
 
             // Si filtre appliqué : Format seulement
-            if ($format != undefined && $format != "FORMATS" && $categ === "CATÉGORIES") {
+            if ($cms != undefined && $cms != "CMS" && $categ === "TYPE DE PROJET") {
                 $args['tax_query'] = array(
                         array(
-                        'taxonomy' => 'format',
+                        'taxonomy' => 'cms',
                         'field' => 'slug',
-                        'terms' => $format, // Utiliser la catégorie sélectionnée
+                        'terms' => $cms, // Utiliser le CMS sélectionné
                         ),
                 );
             }
 
             // Si filtres appliqués : Catégorie + Format
-            if ($categ != undefined && $format != undefined && $categ != "CATÉGORIES" && $format != "FORMATS") {
+            if ($categ != undefined && $cms != undefined && $categ != "TYPE DE PROJET" && $cms != "CMS") {
                 $args['tax_query'] = array(
                     'relation' => 'AND',
                       array(
-                        'taxonomy' => 'categorie',
+                        'taxonomy' => 'typeprojet',
                         'field' => 'slug',
                         'terms' => $categ, // Utiliser la catégorie sélectionnée
                       ),
                       array(
-                        'taxonomy' => 'format',
+                        'taxonomy' => 'cms',
                         'field' => 'slug',
-                        'terms' => $format, // Utiliser le format sélectionnée
+                        'terms' => $cms, // Utiliser le CMS sélectionnée
                       ),
                 );
             

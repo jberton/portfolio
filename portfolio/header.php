@@ -35,6 +35,4 @@
 			</div>
 		</nav>
 
-		<!-- popup contact -->
-		<?php get_template_part( 'template-parts/contact', 'none' );?>
 	</header>
