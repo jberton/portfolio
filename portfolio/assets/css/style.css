@@ -10,6 +10,7 @@ Version: 1.0
 /*GENERAL*/
 :root {
 	--btn-color: rgb(112,48,160);
+	--bg-section: rgb(240, 242, 244);
 	--header-height: 100px; /*pour gérer les liens d'ancrage avec le sticky menu*/
   }
 
@@ -35,13 +36,21 @@ body {
 	height: 100% !important;
 }
 
+h1 {
+	margin:0;
+	padding:0;
+}
+
 h2 {
 	font-family: "Space Mono";
-	font-size: 25px;
-	text-decoration: underline;
-	text-decoration-color: var(--btn-color);
-	text-underline-offset: 10px;
-	text-decoration-thickness: 4px;
+	font-size: 2.5rem;
+	-webkit-text-stroke: 0.01em  black;
+	-webkit-text-fill-color: black;
+}
+
+.page-container {
+	width: 1200px;
+	margin: auto;
 }
 
 /* Mise en forme du bouton action */
@@ -154,6 +163,7 @@ header li a{
 	text-align: center;
 	color: white;
 	z-index: -1;
+	padding-top: 100px;
 }
 
 .hero-header img {
@@ -166,18 +176,20 @@ header li a{
 	width: 100%;
 	font-family: "Space Mono Bold";
 	font-style: italic;
-	font-size: 90px;
+	font-size: 5rem;
+	line-height: 1em;
 	-webkit-text-stroke: 0.02em  white;
 	-webkit-text-fill-color: transparent;
+	margin-top: 10px;
 	margin-bottom: -20px;
-	margin-top: -20px;
 	word-spacing: -.5ch;
 }
 
 .hero-header p {
-	font-size: 30px;
-	width: 60%;
+	font-size: 1.5rem;
+	width: 50%;
 	margin: auto;
+	margin-top: 20px;
 }
 
 /* Page Accueil - Hero Header - Animation apparition de la vidéo */
@@ -198,6 +210,9 @@ header li a{
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 	width: 100%;
+	min-height: 400px;
+	max-height: 700px;
+	object-fit: cover;
   }
 
 /* Page Accueil - Hero Header - Animation apparition du titre sur la vidéo */
@@ -229,62 +244,90 @@ header li a{
 	animation-fill-mode: forwards;
   }
 
-/* Page Accueil - Conteneur filtres + photos */
-.page-container {
-	width: 1200px;
-	margin: auto;
-}
-
 /* Page Accueil - Disposition du Profil */
 .profil-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgb(248,249,250);
-	margin-left: calc( -50vw + 50%);
-	margin-right: calc( -50vw + 50%);
-	margin-top:-6px;
 }
 .profil-container h2 {
-	padding-top: 20px;
+	margin-bottom: 0px;
 }
 
 .profil-container p {
 	text-align: center;
-	width: 900px;
-	margin-bottom: 40px;
+	max-width: 900px;
+	padding: 20px;
 }
 
-/* Page Accueil - Conteneur Profil gestion projet et softs skills */
-.profil-suite-container {
+/* Page Accueil - Conteneur Profil gestion projet */
+.conteneur-mes-services {
+	background-color: var(--bg-section);
+}
+
+.profil-mes-services {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	max-width: 1200px;
+	margin: auto;
 }
 
-/* Page Accueil - Disposition image Profil gestion projet */
-.roue-projet {
-	width: 80%;
+.profil-mes-services img{
+	width: 100px;
+}
+
+.service {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 300px;
+	padding: 30px;
+}
+
+.service h3 {
+	text-align: center;
+}
+
+.service p {
+	text-align: center;
+	margin-top: -10px;
+}
+
+/* Page Accueil - Conteneur Profil gestion projet */
+.profil-gestion-projet {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profil-gestion-projet h2 {
+	text-align: center;
+}
+
+.profil-gestion-projet img {
+	width: 100%;
+	max-width: 600px;
+	object-fit: contain;
 }
 
 /* Page Accueil - Conteneur Compétences*/
 #competences {
-	background-color: rgb(248,249,250);
-	margin-left: calc( -50vw + 50%);
-	margin-right: calc( -50vw + 50%);
+	background-color: var(--bg-section);
 }
 
 /* Page Accueil - Conteneur Compétences Progressbar et CV*/
 #competences h2{
 	text-align: center;
-	padding: 30px;
+	padding-top: 30px;
 }
 .competences-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	width: 1200px;
+	max-width: 1200px;
 	margin: auto;
+	padding: 20px;
 	padding-bottom: 60px;
 }
 
@@ -382,21 +425,25 @@ progress{
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
+	width: 50%;
 }
 
 .mon-cv {
 	object-fit: contain;
-	width: 90%;
+	width: 100%;
 	margin-bottom: 30px;
 }
 
 /* Page Accueil - Section Portfolio */
 #portfolio {
-	padding-top: 20px;
+	padding-top: 10px;
+	max-width: 1200px;
+	margin: auto;
 }
 
 #portfolio h2 {
 	margin-bottom: 40px;
+	text-align: center;
 }
 
 /* Page Accueil - Disposition des menus déroulants */
@@ -492,13 +539,11 @@ li {
 #contact {
 	margin: auto;
 	margin-top: 60px;
-	background-color: rgb(248,249,250);
-	margin-left: calc( -50vw + 50%);
-	margin-right: calc( -50vw + 50%);
+	background-color: var(--bg-section);
 }
 
 .text-contact {
-	padding-top: 25px;
+	padding-top: 10px;
 	padding-bottom: 20px;
 	text-align: center;
 }
@@ -544,23 +589,23 @@ li {
 .wpcf7-form-control-wrap input {
 	width: 350px;
 	height: 40px;
-	border:solid 1px var(--gris-fonce-color);
+	border:solid 1px lightgray;
 	border-radius: 10px;
 	padding: 0 5px;
 	font-family: "Poppins";
 	font-size: 16px;
-	color: var(--bleu-fonce-color);
+	color: black;
 }
 
 .wpcf7-form-control-wrap textarea {
 	width: 350px;
 	height: 210px;
-	border:solid 1px var(--gris-fonce-color);
+	border:solid 1px lightgray;
 	border-radius: 10px;
 	padding: 5px 5px;
 	font-family: "Poppins";
 	font-size: 16px;
-	color: var(--bleu-fonce-color);
+	color: black;
 }
 
 .wpcf7-submit {
@@ -580,6 +625,7 @@ li {
 	align-items: flex-start;
 	height: 95%;
 	width: 40%;
+	gap: 40px;
 }
 
 .contact-mesinfos p {
@@ -614,8 +660,6 @@ li {
 
 .grow img{
 	transition: 1s ease;
-	width: 20%;
-	margin-top: 50px;
 	}
 	
 	.grow img:hover{
@@ -640,10 +684,9 @@ li {
 }
 .post-photo img{
 	width: 100%;
-	height: 400px; /* 100% en responsive */
+	height: 400px;
 	object-fit: contain;
 	object-position: bottom;
-	border: 1px solid #8080806b;
 }
 /* Page single-photos - bloc infos haut */
 .post-info {
@@ -664,6 +707,7 @@ li {
 	text-underline-offset: 15px;
 	text-decoration-thickness: 4px;
 	margin-bottom: 10px;
+	padding-top: 130px;
 }
 
 /* Page single-photos - disposition des blocs en dessous de la photo active */
@@ -788,6 +832,7 @@ swiper-container {
 	grid-auto-rows: minmax(100px, auto);
 	margin-top: 40px;
 	margin-bottom: 40px;
+	justify-items: center;
 }
 
 .photo-card {
@@ -1057,7 +1102,7 @@ nav {
 	justify-content: space-around;
 	align-items: center;
 	height: 100px;
-	border-bottom: 2px solid rgb(248,249,250);
+	border-bottom: 2px solid var(--bg-section);
 }
 
 .navbar-nav {
@@ -1080,7 +1125,6 @@ nav {
 .navbar-nav a:hover {
 	background-size: 100% 100%;
   }
-
 
 .logo a {
 	display:flex;
@@ -1144,19 +1188,18 @@ nav {
 	.navbar-nav {
         position: absolute;
         right: 0;
-        height: 100%;
-        top: 80px;
-        background-color: var(--rouge-color);
+        height: 100vh;
+        top: 100px;
+        background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
-		justify-content: center;
-		padding-bottom:80px;
-		gap:40px;
+		justify-content: flex-start;
+		gap:20px;
         width: 100%;
         transform: translateX(-770px);
         transition: transform 0.5s ease-in-out;
-		z-index: 1;
+		padding-top: 30px;
     }
 
     .navbar-nav li {
@@ -1164,7 +1207,7 @@ nav {
     }
 
 	.navbar-nav li a {
-		color:white;
+		color: black;
 		font-size: 44px;
 	}
 
@@ -1224,12 +1267,64 @@ nav {
 	footer ul {
 		flex-direction: column;
 		align-items: center;
+		gap: 0px;
+	}
+	footer a {
+		font-size: 16px;
 	}
 	footer {
 		flex-direction: column;
 		gap:0px;
+		text-align: center;
+		font-size: 16px;
 	}
 }
+
+/* Responsive Design - Global */
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 2rem;
+	}
+}
+
+
+/* Responsive Design - Page d'accueil */
+@media screen and (max-width: 1200px) {
+	/* Page Accueil - Taille titre du hero header */
+	.hero-header p {
+		font-size: 1.5rem;
+		margin-top: 0px;
+		width: 95%;
+	}
+	.hero-header h1 {
+		font-size: 3.5rem;
+		margin-bottom: 10px;
+	}
+	.titre-parallaxe {
+		gap: 0px;
+	}
+
+	/* Page Accueil - Disposition contact */
+	.contact-conteneur {
+		flex-direction: column;
+		height: auto;
+	}
+
+	.contact-formulaire{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.contact-mesinfos{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		width: 90%;
+		justify-items: center;
+		margin-top: 30px;
+	}
+}
+
 
 /* Responsive Design - Page d'accueil */
 @media screen and (max-width: 768px) {
@@ -1250,11 +1345,63 @@ nav {
 
 	/* Page Accueil - Taille titre du hero header */
 	.hero-header h1 {
-		font-size: 35px;
+		font-size: 2.7rem;
+	}
+	.hero-header p {
+		font-size: 1rem;
+		margin-top: 5px;
+	}
+	.titre-parallaxe {
+		gap: 0px;
+		padding-bottom: 10px;
+	}
+
+	/* Page Accueil - Disposition Mes services */
+	.profil-mes-services {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/* Page Accueil - Disposition Compétences progressbar + CV */
+	.competences-container {
+		flex-direction: column;
+	}
+	.competences-progressbar {
+		width: 100%;
+	}
+	.competences-section {
+		width: 100%;
+	}
+	.competences-cv {
+		width: 100%;
+	}
+
+	/* Page Accueil - Disposition portfolio */
+	.overlay-image {
+		width: 90%;
 	}
 
 }
 
+/* Page Accueil - Taille titre du hero header */
+@media screen and (max-width: 400px) {
+	.hero-header h1 {
+		margin-bottom: 0px;
+		padding-top: 10px;
+	}
+	.titre-parallaxe {
+		padding-bottom: 0px;
+	}
+}
+
+
+
+/* Page Accueil - Disposition contact mes coordonnées */
+@media screen and (max-width: 500px) {
+	.contact-mesinfos{
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
 
 /* Responsive Design - Lightbox */
 @media screen and (max-width: 1200px) {
@@ -1264,6 +1411,16 @@ nav {
 	}
 	.lightbox__next span {
 		opacity: 0;
+	}
+}
+
+/* Responsive Design - Single Page */
+@media screen and (max-width: 1200px) {
+	.lien-contact{
+		flex-direction: column;
+	}
+	.contact-ref{
+		margin: 0;
 	}
 }
 
@@ -1285,10 +1442,10 @@ nav {
 	}
 
 	.lien-contact{
-		flex-direction: column;
 		align-items: center;
 		margin-top: 20px;
 		margin-bottom: 40px;
+		width: 100%;
 	}
 
 	.lien-contact p {
@@ -1309,22 +1466,30 @@ nav {
 	}
 
 	.post-info {
-		width: 80%;
+		width: 100%;
 		border-bottom: none;
+		height: auto;
 	}
 
-	.post-info h1 {
-		width: 100%;
-		font-size: 50px;
+	.h1-singlepage {
+		text-align: center;
 	}
 
 	.post-photo {
-		width: 80%;
+		width: 100%;
 		max-width: none !important;
 	}
 
+	.post-photo img{
+		height: auto;
+	}
+
 	.bloc-dessous {
-		border-top : 1px solid black;
+		display: none;
+	}
+
+	.projet-description {
+		margin-top: 0px;
 	}
 
 
@@ -1341,7 +1506,7 @@ nav {
 
 
 /* Animation apparition pour chaque section */
-.profil-container.is-visible, .profil-suite-container.is-visible, #competences.is-visible, #portfolio.is-visible, #contact.is-visible {
+.fadein.is-visible {
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari et Chrome */
@@ -1388,4 +1553,20 @@ nav {
     }
 }
 
+/* Page Mentions Légales - Titre */
+.titre-mentions {
+	padding-top: 40px;
+	text-decoration: underline;
+	text-decoration-color: var(--btn-color);
+	text-underline-offset: 15px;
+	text-decoration-thickness: 4px;
+}
 
+/* Page Politique de confidentialité - Titre */
+.titre-polconf {
+	padding-top: 40px;
+	text-decoration: underline;
+	text-decoration-color: var(--btn-color);
+	text-underline-offset: 15px;
+	text-decoration-thickness: 4px;
+}

@@ -14,7 +14,7 @@
 			<div class="logo">
 				<a href="<?= get_site_url() ?>">
 					<img src="<?= get_stylesheet_directory_uri() . "/assets/images/jeremie-berton-developpeur-web.png" ?>" alt="Logo Jérémie Berton Développeur web">
-					<p>Jérémie Berton</p>
+					<p class="notranslate">Jérémie Berton</p>
 				</a>
 			</div>
 			<!-- menu principal -->

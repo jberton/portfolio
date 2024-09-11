@@ -61,10 +61,8 @@
 				</div>
 			</div>
 
-
 			<div class="bloc-dessous">
 
-				
 				<!--  Liens pour naviguer parmi les photos -->
 				<div class="lien-navigation">
 					<?php 
@@ -91,6 +89,8 @@
 				</div>
 			</div>
 
+			<?php wp_reset_postdata(); ?>
+
 		<!-- Zone de description du projet -->
 		<div class="projet-description">
 			<h2>Description du projet</h2>
@@ -100,7 +100,7 @@
 		<!--  Lien de contact -->
 		<div class="lien-contact">
 			<p>Vous avez un projet web à développer ?</p>
-			<button id="contact-ref" class="btn-action" type="button">Contactez moi</button>
+			<a href="http://localhost/portfolio/#contact" class="btn-action">Contactez-moi</a>
 		</div>
 
 		<!-- Zone de photos apparentées -->
@@ -119,7 +119,6 @@
 		?>
 
 			<swiper-container class="swiper-container" pagination="false" effect="coverflow" grab-cursor="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" autoplay="true" autoplay-delay="1000" loop="true" speed="2000" centered-slides="true">
-
 				<?php
 				while ( $listephoto->have_posts() ) {
 					$listephoto->the_post();

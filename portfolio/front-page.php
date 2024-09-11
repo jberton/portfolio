@@ -1,56 +1,63 @@
 <!-- Afficher le header -->
 <?php get_header(); ?>
 
-    <!-- Hero header page d'accueil -->
-    <div class="hero-header">
-		<section class="video-hero-header">
-            <video autoplay muted loop poster="<?php echo get_template_directory_uri() . '/assets/images/reunion-developpement-web.jpg'; ?> ">
-                <source
-                src="<?php echo get_stylesheet_directory_uri() . '/assets/video/reunion developpement web.mp4'; ?>"
-                type="video/mp4">
-            </video>
-            <div class="titre-parallaxe" data-0="top:30%" data-550="top:76%">
-				<h1>Je suis développeur web</h1>
-                <p>Spécialisé dans la création et le développement de sites Wordpress sur-mesure et performants.</p>
-			</div>
-        </section>
-    </div>
-
     <!-- Contenu de la page d'accueil -->
-    <div class="page-container">
+    <main class="main">
+
+        <!-- Hero header page d'accueil -->
+        <div class="hero-header">
+            <section class="video-hero-header">
+                <video autoplay muted loop poster="<?php echo get_template_directory_uri() . '/assets/images/reunion-developpement-web.jpg'; ?> ">
+                    <source
+                    src="<?php echo get_stylesheet_directory_uri() . '/assets/video/reunion developpement web.mp4'; ?>"
+                    type="video/mp4">
+                </video>
+                <div class="titre-parallaxe" data-0="top:35%" data-550="top:76%">
+                    <h1>Développeur web Front-end</h1>
+                    <p>Spécialisé dans la création et le développement de sites Wordpress sur-mesure et performants.</p>
+                </div>
+            </section>
+        </div>
 
         <!-- PROFIL A Propos de moi -->
-        <div id="profil" class="profil-container animate-on-scroll section">
-            <h2>À PROPOS DE MOI</h2>
+        <div id="profil" class="profil-container fadein animate-on-scroll section">
+            <h2>À propos de moi</h2>
             <p>Bienvenue sur mon portfolio ! Je m’appelle Jérémie Berton, développeur web basé à Nantes.<br><br>
             Ma spécialité c’est de créer et développer des sites Wordpress sur mesure adapté aux demandes du client et à son budget. Je créé des interfaces simples d'utilisation pour que le client puisse facilement mettre à jour le contenu du site sans connaître les langages de programmation web.<br><br>
             Diplômé Développeur / Intégrateur Web WordPress chez OpenClassRooms. Je peux aussi m’appuyer sur mes 7 ans d’expérience en gestion de projets informatique et logistique pour comprendre les besoins du client et livrer dans les temps un site web de qualité.<br><br>
             Passionnée par les nouvelles technologies et la créativité, je propose des expériences utilisateurs fluides et interactives. Je recherche en continue des nouveaux défis et des opportunités d’apprentissages.
             </p>
+            <a href="http://localhost/portfolio/#portfolio" class="btn-action">Mon portfolio</a>
+            <br>
         </div>
-
+        <div class="conteneur-mes-services">
+            <div class="profil-mes-services fadein animate-on-scroll">
+                <div class="service">
+                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/monitor.gif" ?>" alt="Création de site web">
+                    <h3>Création de site Wordpress</h3>
+                    <p>Je créé des modèles de site unique à votre image avec Wordpress. Je peux ajouter une interface de saisie personnalisée pour mettre à jour votre base de données.
+                    Envie d'un site sur-mesure, au design moderne et performant pour vos visiteur ?</p>
+                </div>
+                <div class="service">
+                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/seo.gif" ?>" alt="Création de site web">
+                    <h3>Référencement naturel</h3>
+                    <p>Pour optimiser votre SEO je vous aide à avoir les bons mots clés pour votre activité et du contenu de qualité. Je créé une architecture interne optimale et je boost la vitesse de chargement pour que les robots améliore votre positionnement.</p>
+                </div>
+                <div class="service">
+                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/support.gif" ?>" alt="Création de site web">
+                    <h3>Maintenance Wordpress</h3>
+                    <p>Je suis toujours disponible et réactif. Je m'occupe des mises à jour Wordpress et des plugins pour assurer la performance et la sécurité de votre site. Je fais des sauvegardes régulières du site et de la base de données pour les restaurer si besoin.</p>
+                </div>
+            </div>
+        </div>
         <!-- PROFIL Projet et softs skills -->
-        <div class="profil-suite-container animate-on-scroll">
-            <div class="gestion-projet">
+        <div class="profil-gestion-projet fadein animate-on-scroll section">
                 <h2>Comment je mène un projet web ?</h2>
                 <img class="roue-projet" src="<?= get_stylesheet_directory_uri() . "/assets/images/etapes-projet-web.jpg" ?>" alt="Etapes projet développement site web" />
-            </div>
-
-            <div class="softs-skills">
-                <h2>Mes softs skills</h2>
-                <p>
-                &lt;/&gt; Créatif & curieux<br>
-                &lt;/&gt; Communication<br>
-                &lt;/&gt; Organisé<br>
-                &lt;/&gt; Esprit d’équipe<br>
-                &lt;/&gt; Analyse & logique<br>
-                </p>
-            </div>
-
         </div>
 
         <!-- PROFIL Projet et softs skills -->
-         <div id="competences" class="animate-on-scroll section">
+         <div id="competences" class="fadein animate-on-scroll section">
             <h2>Mes compétences</h2>
             <div class="competences-container">
                 
@@ -131,7 +138,7 @@
         </div>
 
         <!-- PORTFOLIO zone de filtres + projets réalisés -->
-        <div id="portfolio" class="animate-on-scroll section">
+        <div id="portfolio" class="fadein animate-on-scroll section">
             <h2>Mon portfolio</h2>
 
             <!-- Zone de filtres -->
@@ -296,7 +303,7 @@
         </div>
 
         <!-- CONTACT -->
-        <div id="contact" class="animate-on-scroll section">
+        <div id="contact" class="fadein animate-on-scroll section">
             <div class="text-contact">
                 <h2>Contactez-moi</h2>
                 <p>Vous avez un projet ?<br>N’hésitez pas à me contacter.</p>
@@ -310,23 +317,28 @@
                 </div>
                 <div class="contact-mesinfos">
                     <div class="contact-logo">
-                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-email.jpg" ?>" alt="email jeremie berton">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-email.png" ?>" alt="email jeremie berton">
                         <p>contact@jeremieberton.fr</p>
                     </div>
                     <div class="contact-logo">
                         <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-tel.png" ?>" alt="téléphone jeremie berton">
                         <p>06 81 46 96 62</p>
                     </div>
-                    <div class="brighten grow">
+                    <div class="contact-logo brighten grow">
                     <a href="https://www.linkedin.com/in/jérémie-berton-49b46611a" target="_blank" title="Linkedin Jérémie Berton Développeur web">
                         <img src="<?= get_stylesheet_directory_uri() . "/assets/images/Linkedin-jeremie-berton-developpeur-web.png" ?>" alt="Linkedin Jérémie Berton Développeur web">
+                    </a>
+                    </div>
+                    <div class="contact-logo brighten grow">
+                    <a href="https://github.com/jberton" target="_blank" title="GitHub Jérémie Berton Développeur web">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/GitHub-jeremie-berton-developpeur-web.png" ?>" alt="GitHub Jérémie Berton Développeur web">
                     </a>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
+    </main>
 
 <!-- Afficher le footer -->
 <?php get_footer(); ?>
