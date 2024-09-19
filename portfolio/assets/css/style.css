@@ -49,8 +49,13 @@ h2 {
 }
 
 .page-container {
-	width: 1200px;
+	max-width: 1200px;
 	margin: auto;
+}
+
+.page {
+	max-width: 1150px !important;
+	margin: auto !important;
 }
 
 /* Mise en forme du bouton action */
@@ -125,7 +130,7 @@ footer a:hover {
 header {
 	width: 100%;
 	position: fixed;
-	z-index: 1000;
+	z-index: 10;
 	background-color: #FFF;
 	height: var(--header-height);
 }
@@ -154,7 +159,7 @@ header li a{
 }
 /* Lorsqu’un lien d’ancrage est activé, le navigateur se déplace vers la section ciblée en lui attribuant une marge supérieure de 100 px + 0px pour eviter d'être masqué par le sticky menu */
 .section {
-	scroll-margin-top: calc(var(--header-height) + 0px);
+	scroll-margin-top: 475px;
 }
 
 /* Page Accueil - Hero Header */
@@ -249,6 +254,7 @@ header li a{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: var(--bg-section);
 }
 .profil-container h2 {
 	margin-bottom: 0px;
@@ -260,11 +266,7 @@ header li a{
 	padding: 20px;
 }
 
-/* Page Accueil - Conteneur Profil gestion projet */
-.conteneur-mes-services {
-	background-color: var(--bg-section);
-}
-
+/* Page Accueil - Conteneur Profil - Mes services */
 .profil-mes-services {
 	display: flex;
 	flex-direction: row;
@@ -281,7 +283,7 @@ header li a{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	max-width: 300px;
+	max-width: 325px;
 	padding: 30px;
 }
 
@@ -294,7 +296,7 @@ header li a{
 	margin-top: -10px;
 }
 
-/* Page Accueil - Conteneur Profil gestion projet */
+/* Page Accueil - Conteneur Profil - Gestion projet */
 .profil-gestion-projet {
 	display: flex;
 	flex-direction: column;
@@ -697,6 +699,20 @@ li {
 	height: 400px; /* supp en responsive */
 	text-transform: uppercase;
 }
+
+/* Page single-photos - mise en forme des liens github et du site */
+.post-info a {
+	text-decoration: none;
+    color: black;
+    text-decoration: none;
+	background: linear-gradient(to top, var(--btn-color) 0%, var(--btn-color) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+	transition: background-size .5s;
+}
+
+.post-info a:hover {
+	background-size: 100% 100%;
+  }
+
 
 /* Page single-photos - bloc infos haut - Titre */
 .h1-singlepage {

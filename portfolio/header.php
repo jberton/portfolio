@@ -6,7 +6,7 @@
 		<title>Jérémie Berton - Développeur web à Nantes</title>
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<body style="overflow: visible;">
 	<header>
 
 		<nav id="navbar">

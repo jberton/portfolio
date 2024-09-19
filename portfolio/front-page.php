@@ -19,37 +19,52 @@
             </section>
         </div>
 
-        <!-- PROFIL A Propos de moi -->
-        <div id="profil" class="profil-container fadein animate-on-scroll section">
-            <h2>À propos de moi</h2>
-            <p>Bienvenue sur mon portfolio ! Je m’appelle Jérémie Berton, développeur web basé à Nantes.<br><br>
-            Ma spécialité c’est de créer et développer des sites Wordpress sur mesure adapté aux demandes du client et à son budget. Je créé des interfaces simples d'utilisation pour que le client puisse facilement mettre à jour le contenu du site sans connaître les langages de programmation web.<br><br>
-            Diplômé Développeur / Intégrateur Web WordPress chez OpenClassRooms. Je peux aussi m’appuyer sur mes 7 ans d’expérience en gestion de projets informatique et logistique pour comprendre les besoins du client et livrer dans les temps un site web de qualité.<br><br>
-            Passionnée par les nouvelles technologies et la créativité, je propose des expériences utilisateurs fluides et interactives. Je recherche en continue des nouveaux défis et des opportunités d’apprentissages.
-            </p>
-            <a href="http://localhost/portfolio/#portfolio" class="btn-action">Mon portfolio</a>
-            <br>
-        </div>
+        <!-- PROFIL Mes services -->
         <div class="conteneur-mes-services">
             <div class="profil-mes-services fadein animate-on-scroll">
                 <div class="service">
                     <img src="<?= get_stylesheet_directory_uri() . "/assets/images/monitor.gif" ?>" alt="Création de site web">
                     <h3>Création de site Wordpress</h3>
-                    <p>Je créé des modèles de site unique à votre image avec Wordpress. Je peux ajouter une interface de saisie personnalisée pour mettre à jour votre base de données.
-                    Envie d'un site sur-mesure, au design moderne et performant pour vos visiteur ?</p>
+                    <p>
+                    Presque la moitié des sites web de la planète utilisent WordPress.<br>
+                    C’est le meilleur CMS pour créer le site dont vous avez besoin et qui plaira à vos visiteurs.
+                    Grâce à la maitrise des fonctionnalités avancées de Wordpress, je peux développer pour vous un modèle de site unique, au design moderne et à votre image.
+                    </p>
                 </div>
                 <div class="service">
                     <img src="<?= get_stylesheet_directory_uri() . "/assets/images/seo.gif" ?>" alt="Création de site web">
                     <h3>Référencement naturel</h3>
-                    <p>Pour optimiser votre SEO je vous aide à avoir les bons mots clés pour votre activité et du contenu de qualité. Je créé une architecture interne optimale et je boost la vitesse de chargement pour que les robots améliore votre positionnement.</p>
+                    <p>
+                    L’objectif ? Que votre site arrive en première page des résultats Google.
+                    Pour optimiser votre SEO je vous aide à avoir les bons mots clés pour votre activité et du contenu de qualité. 
+                    Je construis une architecture interne optimale et je boost la vitesse de chargement pour que les robots améliore votre positionnement.
+                    </p>
                 </div>
                 <div class="service">
                     <img src="<?= get_stylesheet_directory_uri() . "/assets/images/support.gif" ?>" alt="Création de site web">
-                    <h3>Maintenance Wordpress</h3>
-                    <p>Je suis toujours disponible et réactif. Je m'occupe des mises à jour Wordpress et des plugins pour assurer la performance et la sécurité de votre site. Je fais des sauvegardes régulières du site et de la base de données pour les restaurer si besoin.</p>
+                    <h3>Maintenance et sécurité</h3>
+                    <p>
+                    Je suis toujours disponible et réactif. Pour assurer la performance et la sécurité de votre site, je m'occupe des mises à jour Wordpress et des plugins. 
+                    Je sécurise votre connexion et je vous protège des attaques de piratage.<br>
+                    Je sauvegarde régulièrement votre site et la base de données pour les restaurer à tout moment si besoin.
+                    </p>
                 </div>
             </div>
         </div>
+
+        <!-- PROFIL A Propos de moi -->
+        <div id="profil" class="profil-container fadein animate-on-scroll section">
+            <h2>À propos de moi</h2>
+            <p>Bienvenue sur mon portfolio ! Je m’appelle Jérémie Berton, développeur web basé à Nantes.<br><br>
+            Ma spécialité c’est de concevoir et développer des sites Wordpress sur mesure adapté aux demandes du client et à son budget. Je créé des interfaces simples d'utilisation en fonction des besoins client pour qu’il puisse facilement mettre à jour le contenu du site sans connaître les langages de programmation web.<br><br>
+            Vous souhaitez améliorer l'expérience utilisateur et leur engagement ? Pour cela je créé des types de contenu sur mesure, mieux structurés, plus faciles à trouver pour faire plaisir au visiteur et répondre à ce qu’il vient chercher.<br><br>
+            Diplômé Développeur / Intégrateur Web WordPress chez OpenClassRooms. Je peux aussi m’appuyer sur mes 7 ans d’expérience en gestion de projets informatique et logistique pour comprendre les besoins du client et livrer dans les temps un site web de qualité.<br><br>
+            Passionnée par les nouvelles technologies et la créativité, je propose des expériences utilisateurs fluides et interactives. Je recherche en continue des nouveaux défis et des opportunités d’apprentissages.
+            </p>
+            <a href="http://jeremieberton.fr/#portfolio" class="btn-action">Mon portfolio</a>
+            <br>
+        </div>
+
         <!-- PROFIL Projet et softs skills -->
         <div class="profil-gestion-projet fadein animate-on-scroll section">
                 <h2>Comment je mène un projet web ?</h2>
@@ -291,6 +306,7 @@
                     <?php endif; ?>   
             </div>
             <button
+                id="chargerplus"
                 class="js-load-photos"
                 data-postid="<?php echo get_the_ID(); ?>"
                 data-maxpage= "<?php echo ($listephoto->max_num_pages) ?>"
@@ -325,7 +341,7 @@
                         <p>06 81 46 96 62</p>
                     </div>
                     <div class="contact-logo brighten grow">
-                    <a href="https://www.linkedin.com/in/jérémie-berton-49b46611a" target="_blank" title="Linkedin Jérémie Berton Développeur web">
+                    <a href="https://www.linkedin.com/in/jeremieberton" target="_blank" title="Linkedin Jérémie Berton Développeur web">
                         <img src="<?= get_stylesheet_directory_uri() . "/assets/images/Linkedin-jeremie-berton-developpeur-web.png" ?>" alt="Linkedin Jérémie Berton Développeur web">
                     </a>
                     </div>

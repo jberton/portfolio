@@ -88,7 +88,7 @@ function load_photos() {
 
         // Construction de la requete
         // Si filtre appliqué : ordre de tri par date
-        if ($order != undefined && $order != "TRIER PAR DATE") {
+        if ($order != "undefined" && $order != "TRIER PAR DATE") {
             $args = array(
                 'post_type' => 'portfolio', // Custom Post type
                 'posts_per_page' => $posts_per_page, // Nombre de photos par page
@@ -109,7 +109,7 @@ function load_photos() {
             }
 
             // Si filtre appliqué : Catégorie seulement
-            if ($categ != undefined && $categ != "TYPE DE PROJET" && $cms === "CMS") {
+            if ($categ != "undefined" && $categ != "TYPE DE PROJET" && $cms === "CMS") {
                 $args['tax_query'] = array(
                       array(
                         'taxonomy' => 'typeprojet',
@@ -120,7 +120,7 @@ function load_photos() {
             }
 
             // Si filtre appliqué : Format seulement
-            if ($cms != undefined && $cms != "CMS" && $categ === "TYPE DE PROJET") {
+            if ($cms != "undefined" && $cms != "CMS" && $categ === "TYPE DE PROJET") {
                 $args['tax_query'] = array(
                         array(
                         'taxonomy' => 'cms',
@@ -131,7 +131,7 @@ function load_photos() {
             }
 
             // Si filtres appliqués : Catégorie + Format
-            if ($categ != undefined && $cms != undefined && $categ != "TYPE DE PROJET" && $cms != "CMS") {
+            if ($categ != "undefined" && $cms != "undefined" && $categ != "TYPE DE PROJET" && $cms != "CMS") {
                 $args['tax_query'] = array(
                     'relation' => 'AND',
                       array(

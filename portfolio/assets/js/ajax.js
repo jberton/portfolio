@@ -4,65 +4,73 @@
       pageactuelle = 1;
       
       // Lancer le sript au clic sur Charger plus
-      document.querySelector('.js-load-photos').addEventListener('click', function(e) {
 
-            // Annuler l'action du href
-            e.preventDefault();
+      const btnchargerplus = document.getElementById("chargerplus");
+      
+      if(!btnchargerplus) {
+        return;
+      }
+      btnchargerplus.addEventListener('click', function (e) {
 
-            // Incrémenter la pagination
-            pageactuelle++;
+         // Annuler l'action du href
+         e.preventDefault();
 
-            // L'URL qui réceptionne les requêtes Ajax dans l'attribut "action" de <button>
-            const ajaxurl = $(this).data('ajaxurl');
+         // Incrémenter la pagination
+         pageactuelle++;
 
-            // Les données de notre formulaire
-			      // ⚠️ Ne changez pas le nom "action" !
-            const data = {
-                action: $(this).data('action'), 
-                nonce:  $(this).data('nonce'),
-                postid: $(this).data('postid'),
-                currentpage: pageactuelle,
-                postcateg: $('#btncat').text(),
-                postcms: $('#btncms').text(),
-                postorder: $('#btntri').text(),
-            }
+         // L'URL qui réceptionne les requêtes Ajax dans l'attribut "action" de <button>
+         const ajaxurl = $(this).data('ajaxurl');
 
-            // Pour vérifier qu'on a bien récupéré les données
-            //console.debug(ajaxurl);
-            //console.log(data);
+         // Les données de notre formulaire
+               // ⚠️ Ne changez pas le nom "action" !
+         const data = {
+             action: $(this).data('action'), 
+             nonce:  $(this).data('nonce'),
+             postid: $(this).data('postid'),
+             currentpage: pageactuelle,
+             postcateg: $('#btncat').text(),
+             postcms: $('#btncms').text(),
+             postorder: $('#btntri').text(),
+         }
 
-            // Requête Ajax en JS natif via Fetch
-            fetch(ajaxurl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Cache-Control': 'no-cache',
-                },
-                body: new URLSearchParams(data),
-            })
-            .then(response => response.json())
-            .then(body => {
-                console.log(body);
+         // Pour vérifier qu'on a bien récupéré les données
+         //console.debug(ajaxurl);
+         //console.log(data);
 
-                // En cas d'erreur
-                if (!body.success) {
-                    alert(response.data);
-                    return;
-                }
+         // Requête Ajax en JS natif via Fetch
+         fetch(ajaxurl, {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/x-www-form-urlencoded',
+                 'Cache-Control': 'no-cache',
+             },
+             body: new URLSearchParams(data),
+         })
+         .then(response => response.json())
+         .then(body => {
+             console.log(body);
 
-                // Et en cas de réussite
-                    // Afficher le HTML
-                    $('.home-photos').append(body.data.html);
-                    // Cacher le button si aucune photo supplémentaire à afficher
-                    if((data.currentpage) === body.data.max){
-                        $(this).hide(); 
-                    }
-                
-                // Recharger le fichier lightbox.js pour enregistrer les évènements
-                var url = window.location.href;
-                $.getScript(url+"wp-content/themes/portfolio/assets/js/lightbox.js?ver=1.0");  
-            });
-        });
+             // En cas d'erreur
+             if (!body.success) {
+                 alert(response.data);
+                 return;
+             }
+
+             // Et en cas de réussite
+                 // Afficher le HTML
+                 $('.home-photos').append(body.data.html);
+                 // Cacher le button si aucune photo supplémentaire à afficher
+                 if((data.currentpage) === body.data.max){
+                     $(this).hide(); 
+                 }
+             
+             // Recharger le fichier lightbox.js pour enregistrer les évènements
+             var url = window.location.href;
+             $.getScript(url+"wp-content/themes/portfolio/assets/js/lightbox.js?ver=1.0");  
+         });
+          
+      });
+
     });
 
 

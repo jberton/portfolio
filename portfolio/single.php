@@ -9,10 +9,8 @@
 		// Obtenir l'ID du post sélectionné
 			$current_id = get_the_ID();
 		// Obtenir l'ID du post précédent
-			$previous_post = get_previous_post();
-			$previous_id = $previous_post->ID;
 			// Si pas de post avant le premier alors prendre le dernier
-			if (is_null($previous_id)){
+			if (is_null(get_previous_post()->ID)){
 				$connected = new WP_Query( array(
 					// Arguments
 					'post_type' => 'portfolio', // Custom Post type
@@ -21,11 +19,12 @@
 					));
 				$previous_id = $connected->posts[0]->ID;
 			}
+			else {
+				$previous_id = get_previous_post()->ID;
+			};
 		// Obtenir l'ID du post suivant
-			$next_post = get_next_post();
-			$next_id = $next_post->ID;
 			// Si pas de post après le dernier alors prendre le premier
-			if (is_null($next_id)){
+			if (is_null(get_next_post()->ID)){
 				$connected = new WP_Query( array(
 					// Arguments
 					'post_type' => 'portfolio', // Custom Post type
@@ -34,6 +33,9 @@
 					));
 				$next_id = $connected->posts[0]->ID;
 			}
+			else{
+				$next_id = get_next_post()->ID;
+			};
 		// Définir tableau avec 3 photos pour la navigation
 			$projectIDs = array( $next_id, $current_id, $previous_id );
 		?>
@@ -51,8 +53,8 @@
 						?>
 					</p>
 					<p><b>Date  :</b> <?php echo get_the_date('Y');?></p>
-					<p><b>Lien GitHub :</b> <?php the_field('lien_github'); ?></p>
-					<p><b>Lien du site :</b> <?php the_field('lien_du_site'); ?></p>
+					<p><b>Lien GitHub : </b><a href="<?php the_field('lien_github'); ?>" target="_blanck">Consultez le code</a></p>
+					<p><b>Lien du site : </b><a href="#">Visitez le site</a></p> <!--  lien_du_site -->
 					
 				</div>
 				<!--  Photos précédente, active, suivante -->
@@ -93,6 +95,8 @@
 
 		<!-- Zone de description du projet -->
 		<div class="projet-description">
+			<h2>Contexte</h2>
+			<p><?php the_field('contexte'); ?></p>
 			<h2>Description du projet</h2>
 			<p><?php the_field('description'); ?></p>
 		</div>
@@ -100,12 +104,12 @@
 		<!--  Lien de contact -->
 		<div class="lien-contact">
 			<p>Vous avez un projet web à développer ?</p>
-			<a href="http://localhost/portfolio/#contact" class="btn-action">Contactez-moi</a>
+			<a href="http://jeremieberton.fr/#contact" class="btn-action">Contactez-moi</a>
 		</div>
 
 		<!-- Zone de photos apparentées -->
 		<div class="projet-slider">
-			<h2>Vous aimerez aussi</h2>
+			<h2>Vous aimeriez peut-être aussi...</h2>
 
 		<!-- Exécuter la WP Query avec les arguments pour définir ce qu'on récupère -->
 		<?php 
