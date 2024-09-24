@@ -23,26 +23,32 @@
         <div class="conteneur-mes-services">
             <div class="profil-mes-services fadein animate-on-scroll">
                 <div class="service">
-                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/monitor.gif" ?>" alt="Création de site web">
-                    <h3>Création de site Wordpress</h3>
+                    <video preload="none" autoplay muted loop disablePictureInPicture poster="<?php echo get_template_directory_uri() . '/assets/images/creation-site-web-wordpress-sur-mesure.jpg'; ?> ">
+                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/site-web-responsive-wordpress.mp4" ?>" type="video/mp4">
+                    </video>
+                    <h2>Création de site Wordpress</h2>
                     <p>
-                    Presque la moitié des sites web de la planète utilisent WordPress.<br>
+                    La moitié des sites web de la planète utilisent WordPress.<br>
                     C’est le meilleur CMS pour créer le site dont vous avez besoin et qui plaira à vos visiteurs.
                     Grâce à la maitrise des fonctionnalités avancées de Wordpress, je peux développer pour vous un modèle de site unique, au design moderne et à votre image.
                     </p>
                 </div>
-                <div class="service">
-                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/seo.gif" ?>" alt="Création de site web">
-                    <h3>Référencement naturel</h3>
+                <div class="service SEO">
+                    <video preload="none" autoplay muted loop disablePictureInPicture poster="<?php echo get_template_directory_uri() . '/assets/images/SEO-referencement-naturel-performances-web.jpg'; ?> ">
+                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/seo-referencement-naturel-performance.mp4" ?>" type="video/mp4">
+                    </video>
+                    <h2>Référencement naturel</h2>
                     <p>
                     L’objectif ? Que votre site arrive en première page des résultats Google.
-                    Pour optimiser votre SEO je vous aide à avoir les bons mots clés pour votre activité et du contenu de qualité. 
+                    Pour optimiser votre SEO je vous aide à avoir les bons mots clés pour votre activité et du contenu de qualité.<br> 
                     Je construis une architecture interne optimale et je boost la vitesse de chargement pour que les robots améliore votre positionnement.
                     </p>
                 </div>
                 <div class="service">
-                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/support.gif" ?>" alt="Création de site web">
-                    <h3>Maintenance et sécurité</h3>
+                    <video preload="none" autoplay muted loop disablePictureInPicture poster="<?php echo get_template_directory_uri() . '/assets/images/maintenance-site-wordpress-cyber-securite-protection.jpg'; ?> ">
+                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/maintenance-wordpress-cybersecurite.mp4" ?>" type="video/mp4">
+                    </video>
+                    <h2>Maintenance et sécurité</h2>
                     <p>
                     Je suis toujours disponible et réactif. Pour assurer la performance et la sécurité de votre site, je m'occupe des mises à jour Wordpress et des plugins. 
                     Je sécurise votre connexion et je vous protège des attaques de piratage.<br>
@@ -190,7 +196,7 @@
 
                 <div class="menu-deroulant">
                     <button id="menu-d-1" class="filtreinactif" ><span id="btncat">TYPE DE PROJET</span>
-                        <a><img id="menu-f-1" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>"></a>
+                        <img id="menu-f-1" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>" alt="Choisir un type de projet web">
                     </button>
                     <ul id="menu-class-1" class="hide">
                         <a href="#" class="clicmenu1">
@@ -219,7 +225,7 @@
                 </div>
                 <div class="menu-deroulant">
                     <button id="menu-d-2" class="filtreinactif"><span id="btncms">CMS</span>
-                        <a><img id="menu-f-2" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>"></a>
+                        <img id="menu-f-2" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>" alt="Sélectionner un CMS">
                     </button>
                     <ul id="menu-class-2" class="hide">
                         <a href="#" class="clicmenu2">
@@ -248,7 +254,7 @@
                 </div>
                 <div class="menu-deroulant">
                     <button id="menu-d-3" class="filtreinactif"><span id="btntri">TRIER PAR DATE</span>
-                        <a><img id="menu-f-3" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>"></a>
+                        <img id="menu-f-3" class="flechebas" src="<?= get_stylesheet_directory_uri() . "/assets/images/icon-fleche.png" ?>" alt="Trier les réalisations par date">
                     </button>
                     <ul id="menu-class-3" class="hide">
                         <a href="#" class="clicmenu3">

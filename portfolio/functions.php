@@ -25,6 +25,8 @@ add_action('wp_enqueue_scripts', 'theme_scripts');
 
 // Supprimer les balises p rajoutées par Contact Form7
 add_filter('wpcf7_autop_or_not', '__return_false');
+// Configuration du captcha vers .net pour éviter charger cookies tiers
+add_filter( 'wpcf7_use_recaptcha_net', '__return_true' );
 
 // Ajouter au thème l'image mise en avant
 add_theme_support( 'post-thumbnails' );
