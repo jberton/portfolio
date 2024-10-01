@@ -54,12 +54,21 @@
 					</p>
 					<p><b>Date  :</b> <?php echo get_the_date('Y');?></p>
 					<p><b>Lien GitHub : </b><a href="<?php the_field('lien_github'); ?>" target="_blanck">Consultez le code</a></p>
-					<p><b>Lien du site : </b><a href="#">Visitez le site</a></p> <!--  lien_du_site -->
+					<p><b>Lien du site : </b><a href="<?php the_field('lien_du_site'); ?>" target="_blanck">Visitez le site</a></p>
 					
 				</div>
 				<!--  Photos précédente, active, suivante -->
 				<div class="post-photo">
-					<?php echo(get_the_post_thumbnail()); ?>
+					<div class="overlay-image">
+						<a href="<?php the_field('lien_du_site'); ?>" target="_blanck">
+							<?php echo(get_the_post_thumbnail()); ?>
+							<div class="hover">
+								<p class="txt-site">
+									Visitez le site
+								</p>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 

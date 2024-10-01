@@ -28,9 +28,9 @@
                     </video>
                     <h2>Création de site Wordpress</h2>
                     <p>
-                    La moitié des sites web de la planète utilisent WordPress.<br>
-                    C’est le meilleur CMS pour créer le site dont vous avez besoin et qui plaira à vos visiteurs.
-                    Grâce à la maitrise des fonctionnalités avancées de Wordpress, je peux développer pour vous un modèle de site unique, au design moderne et à votre image.
+                    La moitié des sites web utilisent WordPress, un CMS gratuit open source.<br>
+                    C’est le meilleur outil pour créer le site dont vous avez besoin et qui plaira à vos visiteurs.
+                    Grâce à la maitrise des fonctionnalités avancées de Wordpress, je peux vous développer un site unique personnalisé à votre image, au design moderne et performant.
                     </p>
                 </div>
                 <div class="service SEO">
@@ -62,10 +62,11 @@
         <div id="profil" class="profil-container fadein animate-on-scroll section">
             <h2>À propos de moi</h2>
             <p>Bienvenue sur mon portfolio ! Je m’appelle Jérémie Berton, développeur web basé à Nantes.<br><br>
-            Ma spécialité c’est de concevoir et développer des sites Wordpress sur mesure adapté aux demandes du client et à son budget. Je créé des interfaces simples d'utilisation en fonction des besoins client pour qu’il puisse facilement mettre à jour le contenu du site sans connaître les langages de programmation web.<br><br>
-            Vous souhaitez améliorer l'expérience utilisateur et leur engagement ? Pour cela je créé des types de contenu sur mesure, mieux structurés, plus faciles à trouver pour faire plaisir au visiteur et répondre à ce qu’il vient chercher.<br><br>
-            Diplômé Développeur / Intégrateur Web WordPress chez OpenClassRooms. Je peux aussi m’appuyer sur mes 7 ans d’expérience en gestion de projets informatique et logistique pour comprendre les besoins du client et livrer dans les temps un site web de qualité.<br><br>
-            Passionnée par les nouvelles technologies et la créativité, je propose des expériences utilisateurs fluides et interactives. Je recherche en continue des nouveaux défis et des opportunités d’apprentissages.
+            Ma spécialité c’est de créer des sites Wordpress sur mesure, adaptés aux demandes du client et à son budget.
+            Un blog, un site vitrine ou une boutique en ligne, je développe des sites Wordpress personnalisés qui s'adaptent à toutes vos exigences avec des solutions sur mesure.<br>
+            Profitez d'une interface simple d'utilisation pour mettre à jour facilement le contenu de votre site sans connaître les langages de programmation web.<br><br>
+            Diplômé Développeur / Intégrateur Web WordPress chez OpenClassRooms. <br>Développeur Wordpress en freelance, je peux m'appuyer sur mes 7 ans d'expériences en gestion de projets pour comprendre les besoins du client et livrer dans les temps un site web de qualité.<br><br>
+            Passionnée par les nouvelles technologies et la créativité, je propose des expériences utilisateurs fluides et interactives pour faire plaisir au visiteur et répondre à ce qu’il vient chercher.
             </p>
             <a href="http://jeremieberton.fr/#portfolio" class="btn-action">Mon portfolio</a>
             <br>
@@ -151,8 +152,8 @@
                 </div>
 
                 <div class="competences-cv">
-                    <img class="mon-cv" src="<?= get_stylesheet_directory_uri() . "/assets/images/cv-jeremie-berton-developpeur-web.jpg" ?>" alt="Etapes projet développement site web"/>
-                    <a href="<?= get_stylesheet_directory_uri() . "/assets/pdf/cv-jeremie-berton-developpeur-web-front-end.pdf" ?>" class="btn-action" target="_blanck">Télécharger CV</a>
+                    <img class="mon-cv" src="<?= get_stylesheet_directory_uri() . "/assets/images/cv-jeremie-berton-developpeur-web-wordpress.jpg" ?>" alt="Etapes projet développement site web"/>
+                    <a href="<?= get_stylesheet_directory_uri() . "/assets/pdf/cv-jeremie-berton-developpeur-web-wordpress.pdf" ?>" class="btn-action" target="_blanck">Télécharger CV</a>
                 </div>
 
             </div>

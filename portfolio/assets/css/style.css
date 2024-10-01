@@ -695,6 +695,15 @@ li {
 	object-fit: contain;
 	object-position: bottom;
 }
+
+.txt-site {
+	position: absolute;
+	color: white;
+	font-size: 20px;
+	top: 40%;
+	left: 40%;
+}
+
 /* Page single-photos - bloc infos haut */
 .post-info {
 	display: flex;

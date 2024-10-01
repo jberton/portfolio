@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Jérémie Berton - Développeur web à Nantes</title>
+		<title>Développeur web WordPress Freelance à Nantes - Jérémie Berton</title>
 		<?php wp_head(); ?>
 	</head>
 	<body style="overflow: visible;">
@@ -13,7 +13,7 @@
 			<!-- image logo -->
 			<div class="logo">
 				<a href="<?= get_site_url() ?>">
-					<img src="<?= get_stylesheet_directory_uri() . "/assets/images/jeremie-berton-developpeur-web.png" ?>" alt="Logo Jérémie Berton Développeur web">
+					<img src="<?= get_stylesheet_directory_uri() . "/assets/images/jeremie-berton-developpeur-web-wordpress.png" ?>" alt="Logo Jérémie Berton Développeur web">
 					<p class="notranslate">Jérémie Berton</p>
 				</a>
 			</div>
