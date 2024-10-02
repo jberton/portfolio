@@ -73,9 +73,25 @@
         </div>
 
         <!-- PROFIL Projet et softs skills -->
-        <div class="profil-gestion-projet fadein animate-on-scroll section">
+        <div id="projet" class="profil-gestion-projet fadein animate-on-scroll section">
                 <h2>Comment je mène un projet web ?</h2>
-                <img class="roue-projet" src="<?= get_stylesheet_directory_uri() . "/assets/images/etapes-projet-web.jpg" ?>" alt="Etapes projet développement site web" />
+
+                <div class="roue-projet-container ">
+                    <img id="hex1" class="hex hex1" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-planning-cadrage.jpg" ?>" alt="Planning analyse des besoins projet site wordpress">
+                    <img id="hex2" class="hex hex2" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-webdesign.jpg" ?>" alt="Conception design création graphique maquette site internet">
+                    <img id="hex3" class="hex hex3" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-developpement-programmation-web.jpg" ?>" alt="Développement site wordpress front-end back-end programmation base de données">
+                    <img id="hex4" class="hex hex4" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-tests-recette.jpg" ?>" alt="Tests unitaires et fonctionnels phase de recette validation développements">
+                    <img id="hex5" class="hex hex5" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-livraison-mise-en-ligne-site-web.jpg" ?>" alt="Mise en ligne site web hébergement publier site wordpress">
+                    <img id="hex6" class="hex hex6" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-maintenance-securite.jpg" ?>" alt="Maintenance corrective évolutive sécurité amélioration continue">
+        
+                    <p id="hexp">Un site wordpress<br>
+                        <span
+                            class="txt-rotate"
+                            data-period="2000"
+                            data-rotate='[ "de qualité", "au meilleur coût", "livré à temps", "sur-mesure", "bien référencé", "performant", "sécurisé" ]'>
+                        </span>
+                    </p>
+                </div>
         </div>
 
         <!-- PROFIL Projet et softs skills -->

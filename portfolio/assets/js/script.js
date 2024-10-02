@@ -107,9 +107,10 @@ document.querySelectorAll('.menu-item').forEach(item => {
         d.style.opacity = 0;
     }
 
-// Afficher ou masquer les menus déroulants
+
 (function($){
     $(document).ready(function() {
+    // Afficher ou masquer les menus déroulants
         // Définir les variables
             // Menu 1 Catégories - Récupérer la class pour savoir si menu est affiché ou masqué
             let menu1 = document.getElementById("menu-class-1");
@@ -217,6 +218,109 @@ document.querySelectorAll('.menu-item').forEach(item => {
             menutop3.classList.replace("filtreactif", "filtreinactif");
         });
 
+
+    // Observer quand la section projet arrive (change de class à is-visible) pour lancer apparition des hexagones
+    const proj = document.querySelector('#projet');
+    let hex1 = document.getElementById("hex1");
+    let hex2 = document.getElementById("hex2");
+    let hex3 = document.getElementById("hex3");
+    let hex4 = document.getElementById("hex4");
+    let hex5 = document.getElementById("hex5");
+    let hex6 = document.getElementById("hex6");
+    let hexp = document.getElementById("hexp");
+
+    const options = {
+        attributes: true
+    }
+  
+    function callback(mutationList, observer) {
+        mutationList.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            // Ajouter class is-visible à tous les hexagones
+            hex1.classList.add("is-visible");
+            hex2.classList.add("is-visible");
+            hex3.classList.add("is-visible");
+            hex4.classList.add("is-visible");
+            hex5.classList.add("is-visible");
+            hex6.classList.add("is-visible");
+            hexp.classList.add("is-visible");
+        }
+        })
+    }
+
+    const observer = new MutationObserver(callback);
+    observer.observe(proj, options);
+
+    // Si la section projet est déjà is-visible au chargement alors afficher tous les hexagones
+        if(proj.classList.contains('is-visible')) {
+            // Ajouter class is-visible à tous les hexagones
+            hex1.classList.add("is-visible");
+            hex2.classList.add("is-visible");
+            hex3.classList.add("is-visible");
+            hex4.classList.add("is-visible");
+            hex5.classList.add("is-visible");
+            hex6.classList.add("is-visible");
+            hexp.classList.add("is-visible");
+        }
+
+
+    // Animation du texte au centre de la roue projet
+        var TxtRotate = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 1;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+          };
+          
+          TxtRotate.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+          
+            if (this.isDeleting) {
+              this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+              this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+          
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+          
+            var that = this;
+            var delta = 100 - Math.random() * 100;
+          
+            if (this.isDeleting) { delta /= 2; }
+          
+            if (!this.isDeleting && this.txt === fullTxt) {
+              delta = this.period;
+              this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+              this.isDeleting = false;
+              this.loopNum++;
+              delta = 500;
+            }
+          
+            setTimeout(function() {
+              that.tick();
+            }, delta);
+          };
+          
+          window.onload = function() {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i=0; i<elements.length; i++) {
+              var toRotate = elements[i].getAttribute('data-rotate');
+              var period = elements[i].getAttribute('data-period');
+              if (toRotate) {
+                new TxtRotate(elements[i], JSON.parse(toRotate), period);
+              }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+            document.body.appendChild(css);
+          };
 
     });
 })(jQuery);

@@ -311,11 +311,121 @@ header li a{
 	text-align: center;
 }
 
-.profil-gestion-projet img {
+.roue-projet-container {
+	position: relative;
 	width: 100%;
 	max-width: 600px;
-	object-fit: contain;
+	height: 600px;
 }
+
+.roue-projet-container p {
+	position: absolute;
+	text-align: center;
+	top: 46%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.roue-projet-container p.is-visible {
+	animation: 1s ease-in-out 4s 1 forwards animprojetp;
+}
+
+/* Page Accueil - Conteneur Profil - Gestion projet - Mise en forme et animation des hexagones */
+.hex {
+	position: absolute;
+	height: 200px; /* adjust to control the size  */
+	aspect-ratio: 1/cos(30deg);
+	clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
+	background: #3B8686;
+	object-fit: cover;
+}
+
+.hex1 {
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.hex1.is-visible {
+	animation: 1s ease-in-out 1s 1 forwards animhex;
+}
+
+.hex2 {
+	top: 32%;
+	left: 79%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.hex2.is-visible {
+	animation: 1s ease-in-out 1.5s 1 forwards animhex;
+}
+
+.hex3 {
+	top: 65.5%;
+	left: 79%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.hex3.is-visible {
+	animation: 1s ease-in-out 2s 1 forwards animhex;
+}
+
+.hex4 {
+	top: 82%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.hex4.is-visible {
+	animation: 1s ease-in-out 2.5s 1 forwards animhex;
+}
+
+.hex5 {
+	top: 65.5%;
+	left: 21%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.hex5.is-visible {
+	animation: 1s ease-in-out 3s 1 forwards animhex;
+}
+
+.hex6 {
+	top: 32%;
+	left: 21%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.hex6.is-visible.is-visible {
+	animation: 1s ease-in-out 3.5s 1 forwards animhex;
+}
+
+/* Page Accueil - Conteneur Profil - Gestion projet - Animation des hexagones */
+@keyframes animhex {
+	0% {
+	  	opacity: 0;
+	  	transform-origin: 80%;
+	  	transform: scale(-1);
+	}
+	100% {
+	  	opacity: 1;
+	}
+  }
+
+  @keyframes animprojetp {
+	0% {
+	  	opacity: 0;
+	}
+	60% {
+		scale:1.1;
+  	}
+	100% {
+	  	opacity: 1;
+	}
+  }
+
 
 /* Page Accueil - Conteneur Compétences*/
 #competences {
@@ -1411,6 +1521,16 @@ nav {
 		width: 90%;
 	}
 
+	/* Page Accueil - Disposition roue projet */
+	.hex {
+		height: 130px;
+	}
+	.hex5 {
+		top: 60%;
+	}
+	.hex3 {
+		top: 60%;
+	}
 }
 
 /* Page Accueil - Taille titre du hero header */
