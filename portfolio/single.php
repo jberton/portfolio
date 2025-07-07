@@ -118,7 +118,7 @@
 
 		<!-- Zone de photos apparentées -->
 		<div class="projet-slider">
-			<h2>Vous aimeriez peut-être aussi...</h2>
+			<h2>Vous aimerez peut-être aussi...</h2>
 
 		<!-- Exécuter la WP Query avec les arguments pour définir ce qu'on récupère -->
 		<?php 

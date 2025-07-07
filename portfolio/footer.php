@@ -1,6 +1,6 @@
-<div class=line-top-footer></div>
+<div class="line-top-footer"></div>
 		<footer>
-			<p>© Copyright 2024 – Jérémie BERTON. Tous droits réservés</p>
+			<p>© Copyright 2025 – Jérémie BERTON. Tous droits réservés</p>
 			<!-- menu footer -->
 			<?php
 				$defaults = array(

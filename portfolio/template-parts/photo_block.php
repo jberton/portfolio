@@ -1,5 +1,7 @@
 <div class="overlay-image">
-    <img class="photo-card" src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="<?php the_title(); ?>" />
+	<?php $thumb_id = get_post_thumbnail_id(get_the_ID());
+	$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);?>
+    <img class="photo-card" src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="<?php echo $alt; ?>" />
     <div class="hover">
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
             <img class="icone-oeil" src="<?= get_stylesheet_directory_uri() . "/assets/images/Icon_eye.png" ?>" alt="Voir le projet web">

@@ -2,7 +2,7 @@
 <?php get_header(); ?>
 
     <!-- Contenu de la page d'accueil -->
-    <main class="main">
+    <main class="main-page">
 
         <!-- Hero header page d'accueil -->
         <div class="hero-header">
@@ -13,8 +13,8 @@
                     type="video/mp4">
                 </video>
                 <div class="titre-parallaxe" data-0="top:35%" data-550="top:76%">
-                    <h1>Développeur web Front-end</h1>
-                    <p>Spécialisé dans la création et le développement de sites Wordpress sur-mesure et performants.</p>
+                    <h1>Création de site Wordpress <span>sur-mesure et performant</span></h1>
+                    <h2>DEVELOPPEUR WEB FREELANCE À NANTES</h2>
                 </div>
             </section>
         </div>
@@ -24,18 +24,17 @@
             <div class="profil-mes-services fadein animate-on-scroll">
                 <div class="service">
                     <video preload="none" autoplay muted loop disablePictureInPicture poster="<?php echo get_template_directory_uri() . '/assets/images/creation-site-web-wordpress-sur-mesure.jpg'; ?> ">
-                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/site-web-responsive-wordpress.mp4" ?>" type="video/mp4">
+                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/création-site-internet-responsive-wordpress.mp4" ?>" type="video/mp4">
                     </video>
                     <h2>Création de site Wordpress</h2>
                     <p>
-                    La moitié des sites web utilisent WordPress, un CMS gratuit open source.<br>
-                    C’est le meilleur outil pour créer le site dont vous avez besoin et qui plaira à vos visiteurs.
-                    Grâce à la maitrise des fonctionnalités avancées de Wordpress, je peux vous développer un site unique personnalisé à votre image, au design moderne et performant.
+                    Vous avez besoin d’un site Wordpress pour développer votre notoriété, acquérir de nouveaux clients ou vendre des produits en ligne ? Les technologies et le web design évoluent, c’est pourquoi je vous accompagne aussi dans votre projet de refonte de site.
                     </p>
+                    <a href="https://jeremieberton.fr/creation-site-wordpress-nantes/" class="btn-action">En savoir plus</a>
                 </div>
                 <div class="service SEO">
                     <video preload="none" autoplay muted loop disablePictureInPicture poster="<?php echo get_template_directory_uri() . '/assets/images/SEO-referencement-naturel-performances-web.jpg'; ?> ">
-                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/seo-referencement-naturel-performance.mp4" ?>" type="video/mp4">
+                        <source src="<?= get_stylesheet_directory_uri() . "/assets/video/referencement-naturel-SEO-performance.mp4" ?>" type="video/mp4">
                     </video>
                     <h2>Référencement naturel</h2>
                     <p>
@@ -61,14 +60,18 @@
         <!-- PROFIL A Propos de moi -->
         <div id="profil" class="profil-container fadein animate-on-scroll section">
             <h2>À propos de moi</h2>
-            <p>Bienvenue sur mon portfolio ! Je m’appelle Jérémie Berton, développeur web basé à Nantes.<br><br>
-            Ma spécialité c’est de créer des sites Wordpress sur mesure, adaptés aux demandes du client et à son budget.
-            Un blog, un site vitrine ou une boutique en ligne, je développe des sites Wordpress personnalisés qui s'adaptent à toutes vos exigences avec des solutions sur mesure.<br>
-            Profitez d'une interface simple d'utilisation pour mettre à jour facilement le contenu de votre site sans connaître les langages de programmation web.<br><br>
-            Diplômé Développeur / Intégrateur Web WordPress chez OpenClassRooms. <br>Développeur Wordpress en freelance, je peux m'appuyer sur mes 7 ans d'expériences en gestion de projets pour comprendre les besoins du client et livrer dans les temps un site web de qualité.<br><br>
-            Passionnée par les nouvelles technologies et la créativité, je propose des expériences utilisateurs fluides et interactives pour faire plaisir au visiteur et répondre à ce qu’il vient chercher.
-            </p>
-            <a href="http://jeremieberton.fr/#portfolio" class="btn-action">Mon portfolio</a>
+			<div class="profil-blocs">
+				<p>Bienvenue sur mon portfolio ! Je m’appelle <b>Jérémie Berton, développeur web freelance à Nantes.</b><br><br>
+				Ma spécialité c’est de <b>créer des sites Wordpress sur mesure</b>, adaptés aux demandes du client et à son budget.<br>
+				Un <b>site vitrine</b> ou une <b>boutique en ligne</b>, je développe des sites Wordpress personnalisés qui s'adaptent à toutes vos exigences.<br>
+				Profitez d'une interface simple d'utilisation pour mettre à jour facilement le contenu de votre site sans connaître les langages de programmation web.<br><br>
+				<b class="surlignage">Diplômé Développeur / Intégrateur Web WordPress</b> chez OpenClassRooms.<br><br>
+				<b class="surlignage">Plus de 10 ans d'expérience</b> en développement informatique et en gestion de projets.<br><br>
+				<a href="http://jeremieberton.fr/#portfolio" class="btn-action">Mon portfolio</a>
+				</p>
+				<img class="profil-photo" src="<?= get_stylesheet_directory_uri() . "/assets/images/developpeur-wordpress-Nantes-Jeremie-Berton.png" ?>" alt="Développeur web Wordpress Freelance Nantes Jérémie Berton">
+			</div>
+            
             <br>
         </div>
 
@@ -77,11 +80,11 @@
                 <h2>Comment je mène un projet web ?</h2>
 
                 <div class="roue-projet-container ">
-                    <img id="hex1" class="hex hex1" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-planning-cadrage.jpg" ?>" alt="Planning analyse des besoins projet site wordpress">
-                    <img id="hex2" class="hex hex2" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-webdesign.jpg" ?>" alt="Conception design création graphique maquette site internet">
+                    <img id="hex1" class="hex hex1" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-analyse-besoin-client.jpg" ?>" alt="Planning analyse des besoins projet site wordpress">
+                    <img id="hex2" class="hex hex2" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-webdesign-maquette.jpg" ?>" alt="Conception design création graphique maquette site internet">
                     <img id="hex3" class="hex hex3" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-developpement-programmation-web.jpg" ?>" alt="Développement site wordpress front-end back-end programmation base de données">
                     <img id="hex4" class="hex hex4" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-tests-recette.jpg" ?>" alt="Tests unitaires et fonctionnels phase de recette validation développements">
-                    <img id="hex5" class="hex hex5" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-livraison-mise-en-ligne-site-web.jpg" ?>" alt="Mise en ligne site web hébergement publier site wordpress">
+                    <img id="hex5" class="hex hex5" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-livraison-mise-en-ligne-site-internet.jpg" ?>" alt="Mise en ligne site web hébergement publier site wordpress">
                     <img id="hex6" class="hex hex6" src="<?= get_stylesheet_directory_uri() . "/assets/images/projet-wordpress-maintenance-securite.jpg" ?>" alt="Maintenance corrective évolutive sécurité amélioration continue">
         
                     <p id="hexp">Un site wordpress<br>
@@ -165,11 +168,6 @@
                         </div>
                     </div>
                     
-                </div>
-
-                <div class="competences-cv">
-                    <img class="mon-cv" src="<?= get_stylesheet_directory_uri() . "/assets/images/cv-jeremie-berton-developpeur-web-wordpress.jpg" ?>" alt="Etapes projet développement site web"/>
-                    <a href="<?= get_stylesheet_directory_uri() . "/assets/pdf/cv-jeremie-berton-developpeur-web-wordpress.pdf" ?>" class="btn-action" target="_blanck">Télécharger CV</a>
                 </div>
 
             </div>
@@ -356,11 +354,11 @@
                 </div>
                 <div class="contact-mesinfos">
                     <div class="contact-logo">
-                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-email.png" ?>" alt="email jeremie berton">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/contact-email-creation-site-internet.png" ?>" alt="email jeremie berton développement site internet">
                         <p>contact@jeremieberton.fr</p>
                     </div>
                     <div class="contact-logo">
-                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/logo-tel.png" ?>" alt="téléphone jeremie berton">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/contact-telephone-developpeur-site-web.png" ?>" alt="téléphone jeremie berton création site web">
                         <p>06 81 46 96 62</p>
                     </div>
                     <div class="contact-logo brighten grow">
@@ -370,7 +368,7 @@
                     </div>
                     <div class="contact-logo brighten grow">
                     <a href="https://github.com/jberton" target="_blank" title="GitHub Jérémie Berton Développeur web">
-                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/GitHub-jeremie-berton-developpeur-web.png" ?>" alt="GitHub Jérémie Berton Développeur web">
+                        <img src="<?= get_stylesheet_directory_uri() . "/assets/images/GitHub-jeremie-berton-developpeur-wordpress.webp" ?>" alt="GitHub Jérémie Berton Développeur wordpress">
                     </a>
                     </div>
                 </div>

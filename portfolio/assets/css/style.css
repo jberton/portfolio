@@ -9,7 +9,8 @@ Version: 1.0
 
 /*GENERAL*/
 :root {
-	--btn-color: rgb(112,48,160);
+	--btn-color: rgb(36,40,78);
+	--btn-color-hover: rgb(219,136,9);
 	--bg-section: rgb(240, 242, 244);
 	--header-height: 100px; /*pour gérer les liens d'ancrage avec le sticky menu*/
   }
@@ -27,13 +28,24 @@ Version: 1.0
 	font-family: 'Poppins';
 	src: url('../fonts/Poppins/Poppins-Regular.woff2');
 }
+@font-face {
+	font-family: 'Barlow';
+	src: url('../fonts/Barlow/Barlow-Regular.woff2');
+}
+
+/* Empecher les liens d’ancrage de défiler derrière le sticky menu */
+html {
+	scroll-padding-top: 6rem;
+  }
 
 body {
 	font-family: "Poppins";
 	font-size: 16px;
 	margin:0;
 	padding:0;
+	border:0;
 	height: 100% !important;
+	width: 100%;
 }
 
 h1 {
@@ -42,10 +54,10 @@ h1 {
 }
 
 h2 {
-	font-family: "Space Mono";
+	font-family: "Poppins";
+	font-weight: 700;
 	font-size: 2.5rem;
-	-webkit-text-stroke: 0.01em  black;
-	-webkit-text-fill-color: black;
+	color: var(--btn-color);
 }
 
 .page-container {
@@ -60,22 +72,23 @@ h2 {
 
 /* Mise en forme du bouton action */
 .btn-action, .js-load-photos{
-	color: #ffffff;
+	color: white;
 	width: 150px;
     background-color: var(--btn-color);
 	text-decoration: none;
-    border: none;
+    border: 2px solid;
+	border-color: var(--btn-color);
     cursor: pointer;
     padding: 12px;
     font-size: 18px;
-	border-radius: 10px;
-	border-bottom: 5px solid rgb(66,28,94);
-	transition: all .1s;
-	-webkit-transition: all .1s;
+	border-radius: 30px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
 	display: flex;
 	justify-content: center;
 	margin: auto;
 }
+
 
 .btn-action:active, .js-load-photos:active {
 	transform: translate(0, 5px);
@@ -83,9 +96,9 @@ h2 {
 	border-bottom: 1px solid;
 }
 
-.btn-action:hover {
+.btn-action:hover, .js-load-photos:hover {
 	color: #ffffff;
-    background-color: rgba(111, 48, 160, 0.801);
+    background-color: var(--btn-color-hover);
 }
 
 /* Footer */
@@ -96,7 +109,7 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 footer ul {
@@ -111,8 +124,8 @@ footer ul {
 footer a {
     color: black;
     text-decoration: none;
-    font-size: 20px;
-	background: linear-gradient(to top, var(--btn-color) 0%, var(--btn-color) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+    font-size: 16px;
+	background: linear-gradient(to top, var(--btn-color-hover) 0%, var(--btn-color-hover) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
 	transition: background-size .5s;
 }
 
@@ -157,10 +170,7 @@ header li a{
 .logo img {
 	height: 90px;	
 }
-/* Lorsqu’un lien d’ancrage est activé, le navigateur se déplace vers la section ciblée en lui attribuant une marge supérieure de 100 px + 0px pour eviter d'être masqué par le sticky menu */
-.section {
-	scroll-margin-top: 475px;
-}
+
 
 /* Page Accueil - Hero Header */
 .hero-header {
@@ -179,22 +189,24 @@ header li a{
 
 .hero-header h1 {
 	width: 100%;
-	font-family: "Space Mono Bold";
-	font-style: italic;
-	font-size: 5rem;
+	font-family: "Barlow";
+	color: black;
+	font-size: 3.5rem;
 	line-height: 1em;
-	-webkit-text-stroke: 0.02em  white;
-	-webkit-text-fill-color: transparent;
-	margin-top: 10px;
-	margin-bottom: -20px;
-	word-spacing: -.5ch;
+	padding: 0.4%;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+.hero-header h1 span {
+	display: block;
+	color: rgb(249,177,43);
 }
 
-.hero-header p {
-	font-size: 1.5rem;
-	width: 50%;
-	margin: auto;
-	margin-top: 20px;
+.hero-header h2 {
+	font-size: 1.3rem;
+	color: var(--btn-color);
+	position: absolute;
+	top: 3%;
 }
 
 /* Page Accueil - Hero Header - Animation apparition de la vidéo */
@@ -236,12 +248,12 @@ header li a{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	gap: 20px;
 	position: absolute;
 	top: 20%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
-	padding-bottom: 10px;
+	background: linear-gradient(90deg,transparent 0%,#fffffff2 20%,#fffffff2 80%,transparent 100%);
 	animation-name: title-load;
 	animation-duration: 1.5s;
 	animation-timing-function: ease-in-out;
@@ -255,15 +267,37 @@ header li a{
 	flex-direction: column;
 	align-items: center;
 	background-color: var(--bg-section);
+	margin-bottom: 0px;
 }
 .profil-container h2 {
 	margin-bottom: 0px;
 }
 
 .profil-container p {
-	text-align: center;
-	max-width: 900px;
+	text-align: left;
+	text-align: justify;
+	width: 45%;
 	padding: 20px;
+}
+
+.surlignage {
+	background-color: rgb(249,177,43);
+}
+
+.profil-blocs{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap:30px;
+	width: 70%;
+	margin-bottom: -25px;
+}
+
+.profil-blocs img{
+	width:500px;
+	height: auto;
+	object-fit: contain;
+	object-position: bottom;
 }
 
 /* Page Accueil - Conteneur Profil - Mes services */
@@ -276,7 +310,7 @@ header li a{
 }
 
 .profil-mes-services video{
-	max-width: 200px;
+	max-width: 150px;
 	background: transparent;
 }
 
@@ -296,7 +330,8 @@ header li a{
 }
 
 .service p {
-	text-align: center;
+	text-align: left;
+	text-align: justify;
 	margin-top: -10px;
 }
 
@@ -342,7 +377,7 @@ header li a{
 }
 
 .hex1 {
-	top: 15%;
+	top: 17%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
@@ -353,7 +388,7 @@ header li a{
 }
 
 .hex2 {
-	top: 32%;
+	top: 33.5%;
 	left: 79%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
@@ -363,7 +398,7 @@ header li a{
 }
 
 .hex3 {
-	top: 65.5%;
+	top: 66.7%;
 	left: 79%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
@@ -373,7 +408,7 @@ header li a{
 }
 
 .hex4 {
-	top: 82%;
+	top: 83%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
@@ -383,8 +418,8 @@ header li a{
 }
 
 .hex5 {
-	top: 65.5%;
-	left: 21%;
+	top: 66.8%;
+	left: 20.8%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
 }
@@ -393,8 +428,8 @@ header li a{
 }
 
 .hex6 {
-	top: 32%;
-	left: 21%;
+	top: 33.5%;
+	left: 20.9%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
 }
@@ -518,7 +553,7 @@ progress{
 	width: 85% !important;
 }
 #ajax-bar.is-visible{
-	width: 75% !important;
+	width: 80% !important;
 }
 #wordpress-bar.is-visible{
 	width: 95% !important;
@@ -527,28 +562,12 @@ progress{
 	width: 90% !important;
 }
 #git-bar.is-visible{
-	width: 85% !important;
+	width: 95% !important;
 }
 #notion-bar.is-visible{
 	width: 90% !important;
 }
 
-
-
-/* Page Accueil - Disposition Compétences cv image + bouton DL*/
-.competences-cv {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-	width: 50%;
-}
-
-.mon-cv {
-	object-fit: contain;
-	width: 100%;
-	margin-bottom: 30px;
-}
 
 /* Page Accueil - Section Portfolio */
 #portfolio {
@@ -670,8 +689,9 @@ li {
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
-	height: 630px;
-	padding-bottom: 50px;
+	height: 700px;
+	padding-bottom: 80px;
+	padding-top: 30px;
 }
 
 .contact-formulaire {
@@ -685,6 +705,9 @@ li {
 .wpcf7-not-valid-tip {
 	margin-bottom: -20px;
 }
+.cf7sr-recaptcha > .wpcf7-not-valid-tip {
+	margin-bottom: 0px;
+}
 
 .wpcf7-form{
 	display: flex;
@@ -693,7 +716,8 @@ li {
 }
 
 .wpcf7-form label{
-	margin-top: 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 	text-align: left;
 }
 
@@ -740,7 +764,7 @@ li {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	height: 95%;
+	height: 100%;
 	width: 40%;
 	gap: 40px;
 }
@@ -801,9 +825,9 @@ li {
 }
 .post-photo img{
 	width: 100%;
-	height: 400px;
+	height: 350px;
 	object-fit: contain;
-	object-position: bottom;
+	object-position: center;
 }
 
 .txt-site {
@@ -820,7 +844,7 @@ li {
 	flex-direction: column;
 	justify-content: flex-end;
 	width: 50%;
-	height: 400px; /* supp en responsive */
+	height: 350px; /* supp en responsive */
 	text-transform: uppercase;
 }
 
@@ -829,7 +853,7 @@ li {
 	text-decoration: none;
     color: black;
     text-decoration: none;
-	background: linear-gradient(to top, var(--btn-color) 0%, var(--btn-color) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+	background: linear-gradient(to top, var(--btn-color-hover) 0%, var(--btn-color-hover) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
 	transition: background-size .5s;
 }
 
@@ -840,10 +864,11 @@ li {
 
 /* Page single-photos - bloc infos haut - Titre */
 .h1-singlepage {
-	font-family: "Space Mono";
+	font-family: "Poppins";
 	font-size: 40px;
+	color: var(--btn-color);
 	text-decoration: underline;
-	text-decoration-color: var(--btn-color);
+	text-decoration-color: var(--btn-color-hover);
 	text-underline-offset: 15px;
 	text-decoration-thickness: 4px;
 	margin-bottom: 10px;
@@ -942,7 +967,7 @@ swiper-container {
 	background-position: center;
 	background-size: cover;
 	width: 400px;
-	border: 1px solid rgba(128, 128, 128, 0.315);
+	text-align: center;
   }
   swiper-slide img {
 	width: 100%;
@@ -981,7 +1006,6 @@ swiper-container {
 	object-fit: cover;
 	background:#000000;
 	display:inline-block;
-	border-bottom: 1px solid grey;
 }
 
 .icone-oeil{
@@ -1000,15 +1024,20 @@ swiper-container {
 .overlay-image {
 	position: relative;
 	width: 100%;
-	border: 1px solid rgb(150, 150, 150);
-	box-shadow: 2px 2px 2px grey;
+	border-radius: 10px;
+	background-color: rgb(245,247,249);
    }
-   
+
    /* Position photo */
    .overlay-image .photo-card {
 	display: block;
 	width: 100%;
-	height: 400px;
+	height: 300px;
+	object-fit: contain;
+	margin: auto;
+	background-color: transparent;
+	margin-top: 15px;
+	margin-bottom: -10px;
    }
    
    /* Position icone oeil */
@@ -1049,7 +1078,7 @@ swiper-container {
 	}
 	/* Position texte titre projet et objectif */
 	.projet-info {
-		padding: 0px 10px;
+		padding: 0px 25px;
 	}
 	.projet-info p {
 		margin-top: -10px;
@@ -1064,6 +1093,7 @@ swiper-container {
 	top: 0;
 	height: 100%;
 	width: 100%;
+	border-radius: 10px;
 	opacity: 0;
 	transition: .5s ease;
 }
@@ -1237,12 +1267,14 @@ swiper-container {
 
 /* MENU Navigation bar */
 nav {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
 	height: 100px;
 	border-bottom: 2px solid var(--bg-section);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
 }
 
 .navbar-nav {
@@ -1255,16 +1287,26 @@ nav {
 }
 
 .navbar-nav a {
-    color: black;
-    text-decoration: none;
-    font-size: 20px;
-	background: linear-gradient(to top, var(--btn-color) 0%, var(--btn-color) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-	transition: background-size .5s;
+	text-decoration: none;
+	position: relative;
+	font-size: 20px;
+	transition: 0.4s;
 }
 
-.navbar-nav a:hover {
-	background-size: 100% 100%;
-  }
+.navbar-nav a:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 4px;
+	background-color: rgb(249,177,43);
+	bottom: -5px;
+	left: 0;
+	transition: width 0.5s;
+}
+
+.navbar-nav a:hover::before {
+  width: 100%;
+}
 
 .logo a {
 	display:flex;
@@ -1427,22 +1469,17 @@ nav {
 	}
 }
 
+/* Responsive Design - Page d'accueil */
+@media screen and (max-width: 1400px) {
+	/* Page Accueil - Dimension conteneur profil */
+	.profil-blocs{
+		width: 100%;
+	}
+}
+
 
 /* Responsive Design - Page d'accueil */
 @media screen and (max-width: 1200px) {
-	/* Page Accueil - Taille titre du hero header */
-	.hero-header p {
-		font-size: 1.5rem;
-		margin-top: 0px;
-		width: 95%;
-	}
-	.hero-header h1 {
-		font-size: 3.5rem;
-		margin-bottom: 10px;
-	}
-	.titre-parallaxe {
-		gap: 0px;
-	}
 
 	/* Page Accueil - Disposition contact */
 	.contact-conteneur {
@@ -1462,6 +1499,15 @@ nav {
 		width: 90%;
 		justify-items: center;
 		margin-top: 30px;
+	}
+}
+
+/* Responsive Design - Page d'accueil */
+@media screen and (max-width: 1200px) {
+	/* Page Accueil - Disposition A propos */
+	.profil-blocs{
+		flex-direction: column-reverse;
+		align-items: center;
 	}
 }
 
@@ -1485,21 +1531,34 @@ nav {
 
 	/* Page Accueil - Taille titre du hero header */
 	.hero-header h1 {
-		font-size: 2.7rem;
+		font-size: 2.5rem;
+		padding: 20px;
 	}
-	.hero-header p {
+	.hero-header h2 {
 		font-size: 1rem;
-		margin-top: 5px;
 	}
 	.titre-parallaxe {
-		gap: 0px;
-		padding-bottom: 10px;
+		padding-bottom: 5px;
+		top:32%;
+		background: none #fffffff2;
 	}
 
 	/* Page Accueil - Disposition Mes services */
 	.profil-mes-services {
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.profil-container p {
+		width: 93%;
+		margin-bottom: 0px;
+	}
+
+	.profil-blocs img {
+		width: 70%;
+		margin-left: 10px;
+		margin-top: 20px;
+		margin-bottom: -40px;
 	}
 
 	/* Page Accueil - Disposition Compétences progressbar + CV */
@@ -1521,16 +1580,41 @@ nav {
 		width: 90%;
 	}
 
+	/* Page Accueil - Disposition roue projet - gestion débordement contenu pour éviter décalage menu  */
+	.roue-projet-container {
+		overflow: hidden;
+		height: 450px;
+	}
+
 	/* Page Accueil - Disposition roue projet */
 	.hex {
 		height: 130px;
 	}
-	.hex5 {
-		top: 60%;
+	.hex2 {
+		top: 32%;
 	}
 	.hex3 {
-		top: 60%;
+		top: 62%;
 	}
+	.hex4 {
+		top: 77%;
+	}
+	.hex5 {
+		top: 62%;
+	}
+	.hex6 {
+		top: 32%;
+	}
+	.roue-projet-container p {
+		top: 44%;
+	}
+
+	/* Page Accueil - position image mes réalisations */
+   .overlay-image .photo-card {
+		margin-top: -20px;
+		margin-bottom: -50px;
+   }
+
 }
 
 /* Page Accueil - Taille titre du hero header */
@@ -1641,8 +1725,15 @@ nav {
 	.projet-description {
 		margin-top: 0px;
 	}
+	
+	.txt-site {
+		top: 30%;
+		left: 30%;
+	}
 
-
+	swiper-slide img {
+		width: 80%;
+	}
 }
 
 @media screen and (max-width:500px){
@@ -1651,8 +1742,24 @@ nav {
 	}
 }
 
+/* Responsive Design - Page création de site */
+@media screen and (max-width: 1200px) {
+	.main {
+		margin-left: 5% !important;
+		margin-right: 5% !important;
+	}
+}
 
+@media screen and (max-width: 781px) {
+	.wp-block-buttons {
+		justify-content: center;
+	}
 
+	.img-creasite{
+		width: 80% !important;
+		margin: auto;
+	}
+}
 
 
 /* Animation apparition pour chaque section */
@@ -1707,7 +1814,7 @@ nav {
 .titre-mentions {
 	padding-top: 40px;
 	text-decoration: underline;
-	text-decoration-color: var(--btn-color);
+	text-decoration-color: var(--btn-color-hover);
 	text-underline-offset: 15px;
 	text-decoration-thickness: 4px;
 }
@@ -1716,7 +1823,86 @@ nav {
 .titre-polconf {
 	padding-top: 40px;
 	text-decoration: underline;
-	text-decoration-color: var(--btn-color);
+	text-decoration-color: var(--btn-color-hover);
 	text-underline-offset: 15px;
 	text-decoration-thickness: 4px;
+}
+
+/* Page Creation de site - Titre */
+.titre-creasite {
+	padding-top: 40px;
+	text-decoration: underline;
+	text-decoration-color: var(--btn-color-hover);
+	text-underline-offset: 15px;
+	text-decoration-thickness: 4px;
+}
+
+/* Page Creation de site - image titre */
+.img-creasite {
+	width: 500px;
+	margin-bottom: -60px;
+}
+
+.col2-titre-creasite {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Page Creation de site - Titre besoins */
+.titre-besoins {
+font-family: "Poppins";
+text-align: center;
+font-size: 1.4rem !important;
+margin-top: 20px;
+margin-bottom: 40px;
+}
+
+.sous-titre-besoins {
+	margin-top: -5px;
+	margin-bottom: -5px;
+}
+
+/* Page Creation de site - Séparateur sous le titre besoins */
+.separateur-besoins {
+	color: var(--btn-color-hover);
+	width: 20%;
+	height: 20px;
+	border-top: 4px solid;
+}
+
+/* Page Creation de site - Disposition des colonnes avec les 4 besoins */
+.blocs-besoins{
+	gap: 50px;
+}
+
+/* Page Creation de site - Enlever espace avant dernier bouton */
+.fin-col-besoins {
+	margin-bottom: -20px !important;
+}
+
+/* Page Creation de site - Disposition des paragraphes */
+.parag-besoins {
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: justify;
+}
+
+/* Page Creation de site - Mise en forme des boutons */
+.btn-creasite {
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;
+}
+
+.btn-creasite a {
+	color: white;
+	background-color: var(--btn-color);
+	border: 2px solid;
+	border-color: var(--btn-color);
+	transition: all 0.5s;
+}
+
+.btn-creasite a:hover{
+	background-color: var(--btn-color-hover);
+	transition: all 0.5s;
 }
